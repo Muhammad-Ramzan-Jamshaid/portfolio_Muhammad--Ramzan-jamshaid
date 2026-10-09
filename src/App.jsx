@@ -60,7 +60,7 @@ export default function App() {
       <Experience experiences={data.experiences || []} />
 
       {/* Featured Projects Section */}
-      <Projects projects={data.projects || []} />
+      <Projects projects={data.projects || []} personalInfo={data.personalInfo} />
 
       {/* Continuous Learning & Certifications Section */}
       <Learning learning={data.learning || []} />
@@ -88,3 +88,5 @@ export default function App() {
     </div>
   );
 }
+
+

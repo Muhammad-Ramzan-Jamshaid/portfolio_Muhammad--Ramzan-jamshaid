@@ -2,17 +2,10 @@ import React, { useState } from 'react';
 import { Icons } from './Icons';
 
 export const Projects = ({ projects }) => {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [showModal, setShowModal] = useState(false);
 
-  const filters = ['All', 'Laravel', 'React', 'SQL', 'Full Stack'];
-
-  const filteredProjects = activeFilter === 'All'
-    ? projects
-    : projects.filter(p => {
-        if (p.category && p.category.toLowerCase() === activeFilter.toLowerCase()) return true;
-        if (p.technologies && p.technologies.some(t => t.toLowerCase() === activeFilter.toLowerCase())) return true;
-        return false;
-      });
+  // Show top 3 latest projects on homepage view
+  const homeDisplayProjects = projects.slice(0, 3);
 
   return (
     <section id="projects" className="section">
@@ -27,31 +20,22 @@ export const Projects = ({ projects }) => {
             </h2>
           </div>
 
-          <div className="header-right">
-            <p className="header-desc">
-              Explore real-world software applications built with Laravel 11 backend REST APIs, React dynamic UIs, MySQL database schemas, and modern JavaScript.
-            </p>
+          <div className="header-right" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+            <button
+              onClick={() => setShowModal(true)}
+              className="btn btn-gold btn-lg"
+            >
+              <span>Show All Projects</span>
+              <Icons.ExternalLink size={15} />
+            </button>
           </div>
         </div>
 
-        {/* Filter Row */}
-        <div className="filter-row">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`filter-btn ${activeFilter === filter ? 'active' : ''}`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
+        {/* Homepage Projects Cards Grid (Top 3 Latest) */}
         <div className="projects-grid">
-          {filteredProjects.map((project) => (
+          {homeDisplayProjects.map((project) => (
             <div key={project.id} className="clean-card project-card">
-              {/* Screenshot Box */}
+              {/* Project Image Banner */}
               <div className="project-img-box">
                 <img
                   src={project.image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"}
@@ -62,48 +46,35 @@ export const Projects = ({ projects }) => {
                     e.target.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
                   }}
                 />
-                {project.featured && (
-                  <span className="featured-pill">Featured</span>
-                )}
               </div>
 
-              {/* Body */}
+              {/* Body: Project Name & Description */}
               <div className="project-body">
-                {project.metrics && (
-                  <div className="metric-badge">{project.metrics}</div>
-                )}
-
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-desc">{project.description}</p>
 
-                {/* Tech Pills */}
-                <div className="project-tech-row">
-                  {project.technologies && project.technologies.map((tech) => (
-                    <span key={tech} className="tech-badge">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action Buttons */}
+                {/* Action Links: Live Demo & Source Code */}
                 <div className="project-actions">
                   <a
                     href={project.liveUrl || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-gold btn-sm"
+                    title="Live Demo"
                   >
                     <span>Live Demo</span>
                     <Icons.ExternalLink size={13} />
                   </a>
+
                   <a
-                    href={project.githubUrl || "#"}
+                    href={project.githubUrl || "https://github.com"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-secondary btn-sm"
+                    title="Source Code Repository"
                   >
                     <Icons.Github size={13} />
-                    <span>GitHub</span>
+                    <span>Source Code</span>
                   </a>
                 </div>
               </div>
@@ -112,17 +83,105 @@ export const Projects = ({ projects }) => {
         </div>
       </div>
 
+      {/* FULL PROJECTS MODAL PAGE */}
+      {showModal && (
+        <div className="project-modal-overlay">
+          <div className="project-modal-container">
+            {/* Modal Header */}
+            <div className="project-modal-header">
+              <div>
+                <span className="header-label">ALL PROJECTS</span>
+                <h2 className="project-modal-title">
+                  All Web Applications &amp; <span className="highlight-gold">Systems</span>
+                </h2>
+              </div>
+              <button onClick={() => setShowModal(false)} className="btn btn-secondary">
+                <Icons.X size={18} />
+                <span>Close</span>
+              </button>
+            </div>
+
+            {/* Modal Projects List (Horizontal Layout matching Certificates page) */}
+            <div className="project-modal-list">
+              {projects.map((project) => (
+                <div key={project.id} className="clean-card project-horizontal-card">
+                  {/* Left Content Column */}
+                  <div className="project-horiz-left">
+                    <h3 className="project-horiz-title">{project.title}</h3>
+
+                    <div className="project-meta-line">
+                      <span className="meta-category">{project.category || 'Full Stack'}</span>
+                      {project.metrics && (
+                        <>
+                          <span className="meta-sep">•</span>
+                          <span className="meta-metrics">{project.metrics}</span>
+                        </>
+                      )}
+                    </div>
+
+                    <p className="project-horiz-desc">{project.description}</p>
+                    
+                    {/* Technologies Pills */}
+                    {project.technologies && (
+                      <div className="project-horiz-techs">
+                        {project.technologies.map((t) => (
+                          <span key={t} className="project-tech-pill">{t}</span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Action Buttons */}
+                    <div className="project-actions" style={{ marginTop: 'auto', paddingTop: '1.25rem' }}>
+                      <a
+                        href={project.liveUrl || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-gold btn-sm"
+                      >
+                        <span>Live Demo</span>
+                        <Icons.ExternalLink size={13} />
+                      </a>
+                      <a
+                        href={project.githubUrl || "https://github.com"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary btn-sm"
+                      >
+                        <Icons.Github size={13} />
+                        <span>Source Code</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Right Image Column */}
+                  <div className="project-horiz-right">
+                    <img
+                      src={project.image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"}
+                      alt={project.title}
+                      className="project-horiz-img"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         .projects-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-          gap: 1.5rem;
+          gap: 1.75rem;
         }
         .project-card {
           display: flex;
           flex-direction: column;
           overflow: hidden;
-          position: relative;
         }
         .project-img-box {
           position: relative;
@@ -135,17 +194,10 @@ export const Projects = ({ projects }) => {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          transition: transform 0.3s ease;
         }
-        .featured-pill {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          padding: 0.2rem 0.6rem;
-          background: var(--accent-gold);
-          color: #07090e;
-          font-weight: 700;
-          font-size: 0.72rem;
-          border-radius: 4px;
+        .project-card:hover .project-img {
+          transform: scale(1.05);
         }
         .project-body {
           padding: 1.5rem;
@@ -153,47 +205,132 @@ export const Projects = ({ projects }) => {
           flex-direction: column;
           flex: 1;
         }
-        .metric-badge {
-          font-size: 0.75rem;
-          color: var(--accent-gold);
-          background: rgba(251, 191, 36, 0.08);
-          border: 1px solid rgba(251, 191, 36, 0.2);
-          padding: 0.15rem 0.55rem;
-          border-radius: 4px;
-          margin-bottom: 0.75rem;
-          align-self: flex-start;
-        }
         .project-title {
-          font-size: 1.15rem;
+          font-size: 1.2rem;
           margin-bottom: 0.5rem;
           color: #ffffff;
         }
         .project-desc {
           font-size: 0.88rem;
           color: var(--text-secondary);
-          margin-bottom: 1.25rem;
-          line-height: 1.55;
+          margin-bottom: 1.5rem;
+          line-height: 1.6;
           flex: 1;
-        }
-        .project-tech-row {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.4rem;
-          margin-bottom: 1.25rem;
-        }
-        .tech-badge {
-          font-size: 0.75rem;
-          padding: 0.15rem 0.5rem;
-          background: var(--bg-main);
-          border: 1px solid var(--border-color);
-          border-radius: 4px;
-          color: var(--text-secondary);
         }
         .project-actions {
           display: flex;
           gap: 0.65rem;
           padding-top: 1rem;
           border-top: 1px solid var(--border-color);
+        }
+
+        /* Modal Overlay & Horizontal Project Layout */
+        .project-modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(7, 9, 14, 0.95);
+          backdrop-filter: blur(10px);
+          z-index: 1000;
+          overflow-y: auto;
+          padding: 2.5rem 1.5rem;
+        }
+        .project-modal-container {
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+        .project-modal-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 2.5rem;
+          padding-bottom: 1.5rem;
+          border-bottom: 1px solid var(--border-color);
+        }
+        .project-modal-title {
+          font-size: 2.2rem;
+          color: #ffffff;
+          margin-top: 0.2rem;
+        }
+        .project-modal-list {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+        }
+        .project-horizontal-card {
+          display: grid;
+          grid-template-columns: 1.3fr 0.9fr;
+          gap: 2rem;
+          padding: 2.2rem;
+          align-items: center;
+        }
+        .project-horiz-left {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        .project-horiz-title {
+          font-size: 1.6rem;
+          color: #ffffff;
+          margin-bottom: 0.5rem;
+          font-weight: 700;
+        }
+        .project-meta-line {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.85rem;
+          color: var(--accent-gold);
+          margin-bottom: 1rem;
+          font-weight: 600;
+        }
+        .meta-sep { color: var(--text-muted); }
+        .project-horiz-desc {
+          font-size: 0.98rem;
+          color: var(--text-secondary);
+          line-height: 1.65;
+          margin-bottom: 1.25rem;
+        }
+        .project-horiz-techs {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.45rem;
+          margin-bottom: 1rem;
+        }
+        .project-tech-pill {
+          padding: 0.2rem 0.65rem;
+          background: var(--bg-main);
+          border: 1px solid var(--border-color);
+          border-radius: 4px;
+          font-size: 0.78rem;
+          color: #ffffff;
+          font-family: var(--font-code);
+        }
+        .project-horiz-right {
+          height: 260px;
+          border-radius: var(--radius-md);
+          overflow: hidden;
+          border: 1px solid var(--border-color);
+        }
+        .project-horiz-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+        .project-horizontal-card:hover .project-horiz-img {
+          transform: scale(1.03);
+        }
+
+        @media (max-width: 850px) {
+          .project-horizontal-card {
+            grid-template-columns: 1fr;
+          }
+          .project-horiz-right {
+            height: 200px;
+          }
         }
       `}</style>
     </section>

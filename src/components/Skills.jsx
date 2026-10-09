@@ -24,9 +24,7 @@ export const Skills = ({ skills }) => {
           </div>
 
           <div className="header-right">
-            <p className="header-desc">
-              Demonstrated mastery in Laravel, PHP, React.js, JavaScript (ES6+), HTML5/CSS3, and SQL database performance tuning.
-            </p>
+            {/* Top-right text removed */}
           </div>
         </div>
 

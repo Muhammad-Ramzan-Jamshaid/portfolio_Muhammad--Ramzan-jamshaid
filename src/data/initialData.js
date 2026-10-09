@@ -1,20 +1,20 @@
 export const initialPortfolioData = {
   personalInfo: {
     name: "Muhammad Ramzan Jamshaid",
-    title: "Full Stack Developer & Software Engineer",
+    title: "Full Stack Developer",
     tagline: "Building High-Performance Web Applications with Laravel, React & SQL",
     bio: "Passionate Full Stack Developer with expertise in crafting robust backend architectures with Laravel & SQL, and building dynamic, responsive UI with React, JavaScript, HTML, and CSS. Dedicated to continuous learning, clean code practices, and scalable software solutions.",
-    email: "ramzan.jamshaid.dev@gmail.com",
-    phone: "+92 300 1234567",
+    email: "ramzanjamshaid8u@gmail.com",
+    phone: "+92 303 5302094",
     location: "Pakistan",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    github: "https://github.com/Muhammad-Ramzan-Jamshaid",
+    linkedin: "https://www.linkedin.com/in/muhammad-ramzan-jamshaid-283827378",
     twitter: "https://twitter.com",
     status: "Available for Hire & Freelance Projects",
-    yearsExperience: 3,
-    completedProjects: 18,
-    satisfiedClients: 15,
-    technologiesMastered: 12
+    yearsExperience: 2,
+    completedProjects: 5,
+    satisfiedClients: 3,
+    technologiesMastered: 10
   },
 
   skills: [
@@ -35,7 +35,7 @@ export const initialPortfolioData = {
   experiences: [
     {
       id: "e1",
-      role: "Senior Full Stack Engineer",
+      role: "Senior Full Stack Developer",
       company: "Tech Solutions Inc.",
       location: "Remote / On-site",
       period: "2023 - Present",
@@ -65,7 +65,7 @@ export const initialPortfolioData = {
       id: "e3",
       role: "Associate Web Developer",
       company: "Creative Web Studio",
-      location: "Pakistan",
+      location: "Pakistan, Sheikhupura",
       period: "2021 - 2022",
       description: "Crafted interactive web platforms, landing pages, and web portals using vanilla HTML, CSS, JavaScript, and custom PHP modules.",
       highlights: [
@@ -143,43 +143,48 @@ export const initialPortfolioData = {
   learning: [
     {
       id: "l1",
-      title: "Laravel 11 Architecture & Advanced Microservices",
-      issuer: "Udemy / Official Documentation",
-      date: "2024 (Ongoing)",
-      status: "In Progress",
-      type: "Continuous Learning",
-      description: "Deep diving into Laravel 11 features, queues, jobs, Redis caching, microservice event-driven architecture, and domain-driven design.",
-      tags: ["Laravel 11", "PHP 8.3", "Microservices", "Redis"]
+      title: "Laravel 11 API Architecture & Microservices",
+      issuer: "Udemy Certified",
+      date: "15 January 2024",
+      duration: "6 Months Course",
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+      description: "Advanced certification in Laravel 11 features, RESTful API architecture, Sanctum authentication, background queues, and Redis database caching."
     },
     {
       id: "l2",
-      title: "Advanced React 19 & State Management Patterns",
-      issuer: "Meta / Frontend Masters",
-      date: "2024",
-      status: "Completed",
-      type: "Certification",
-      description: "Mastered React Server Components, custom hooks optimization, memoization techniques, state management with Zustand & Context API.",
-      tags: ["React 19", "JavaScript", "Hooks", "Performance"]
+      title: "Meta Advanced React 19 Development",
+      issuer: "Meta / Coursera",
+      date: "10 November 2023",
+      duration: "4 Months Course",
+      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80",
+      description: "Mastered React Server Components, custom hooks optimization, state management, memoization, and modern JavaScript component design."
     },
     {
       id: "l3",
-      title: "SQL Query Performance Tuning & Database Indexing",
-      issuer: "Database Architecture Certification",
-      date: "2023",
-      status: "Completed",
-      type: "Certification",
-      description: "In-depth training on EXPLAIN query plans, database normalization, B-tree indexes, stored procedure optimization, and transaction locks.",
-      tags: ["SQL", "MySQL", "Indexing", "Query Tuning"]
+      title: "SQL Query Optimization & Database Indexing",
+      issuer: "Database Architecture Academy",
+      date: "05 August 2023",
+      duration: "3 Months Course",
+      image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80",
+      description: "Specialized training on MySQL EXPLAIN query plans, B-Tree indexing strategies, stored procedures, and relational schema normalization."
     },
     {
       id: "l4",
       title: "Full-Stack Security & RESTful API Best Practices",
       issuer: "Cyber Security Web Certification",
-      date: "2023",
-      status: "Completed",
-      type: "Certification",
-      description: "Specialized in preventing OWASP Top 10 vulnerabilities, XSS, CSRF mitigation, CORS headers, SQL Injection prevention, and token security.",
-      tags: ["API Security", "Laravel Sanctum", "OWASP"]
+      date: "20 May 2023",
+      duration: "2 Months Course",
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+      description: "Comprehensive training on OWASP Top 10 vulnerabilities, XSS/CSRF mitigation, CORS headers, and secure Sanctum token security."
+    },
+    {
+      id: "l5",
+      title: "Modern JavaScript (ES6+) & Web Performance",
+      issuer: "Frontend Engineering Mastery",
+      date: "12 January 2023",
+      duration: "2 Months Course",
+      image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?auto=format&fit=crop&w=800&q=80",
+      description: "Deep dive into ES6+ JavaScript async/await, event loop, DOM performance optimization, and Lighthouse 95+ web performance scoring."
     }
   ]
 };
