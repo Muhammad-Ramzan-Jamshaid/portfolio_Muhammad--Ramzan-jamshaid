@@ -327,9 +327,24 @@ export const Projects = ({ projects }) => {
         @media (max-width: 850px) {
           .project-horizontal-card {
             grid-template-columns: 1fr;
+            padding: 1.5rem;
           }
           .project-horiz-right {
             height: 200px;
+          }
+          .project-modal-overlay {
+            padding: 1.5rem 1rem;
+          }
+          .project-modal-title {
+            font-size: 1.6rem;
+          }
+        }
+        @media (max-width: 600px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+          }
+          .project-horiz-title {
+            font-size: 1.3rem;
           }
         }
       `}</style>

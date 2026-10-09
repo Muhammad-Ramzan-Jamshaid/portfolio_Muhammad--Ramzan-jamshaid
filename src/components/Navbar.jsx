@@ -181,6 +181,23 @@ export const Navbar = ({ activeSection }) => {
           .desktop-nav { display: none; }
           .mobile-menu-toggle { display: block; }
         }
+        @media (max-width: 600px) {
+          .navbar-actions {
+            gap: 0.5rem;
+          }
+          .brand-name {
+            font-size: 1.25rem;
+          }
+          .navbar-actions .btn {
+            padding: 0.4rem 0.75rem !important;
+            font-size: 0.82rem !important;
+          }
+        }
+        @media (max-width: 400px) {
+          .navbar-actions .btn-secondary span {
+            display: none;
+          }
+        }
       `}</style>
     </header>
   );

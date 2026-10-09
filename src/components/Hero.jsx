@@ -62,14 +62,10 @@ export const Hero = ({ personalInfo }) => {
                 }}
               />
             </div>
-            <div className="hero-avatar-badge">
-              <span className="badge-status-dot"></span>
-              <span>Available for Hire</span>
-            </div>
           </div>
 
           <span className="header-label" style={{ marginTop: '0.8rem' }}>DEVELOPER PORTFOLIO</span>
-          
+
           <h1 className="hero-name">Muhammad Ramzan Jamshaid</h1>
           <h2 className="hero-subrole">Full Stack Developer <span className="highlight-gold">(Laravel &amp; React)</span></h2>
 
@@ -282,6 +278,30 @@ export const Hero = ({ personalInfo }) => {
         @media (max-width: 960px) {
           .hero-split-grid {
             grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          .hero-intro-col {
+            align-items: flex-start;
+          }
+        }
+        @media (max-width: 600px) {
+          .hero-name {
+            font-size: 2rem;
+          }
+          .hero-subrole {
+            font-size: 1.15rem;
+          }
+          .hero-desc {
+            font-size: 0.95rem;
+          }
+          .editor-body {
+            font-size: 0.78rem;
+            padding: 0.85rem;
+            min-height: 280px;
+          }
+          .hero-avatar-frame {
+            width: 110px;
+            height: 110px;
           }
         }
       `}</style>
