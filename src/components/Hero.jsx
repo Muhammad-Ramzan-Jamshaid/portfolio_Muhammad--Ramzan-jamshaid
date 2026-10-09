@@ -118,13 +118,14 @@ export const Hero = ({ personalInfo }) => {
         .hero-split-grid {
           display: grid;
           grid-template-columns: 1.1fr 0.9fr;
-          gap: 3rem;
+          gap: 2.5rem;
           align-items: center;
         }
         .hero-intro-col {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          width: 100%;
         }
 
         /* Profile Avatar Frame */
@@ -134,8 +135,8 @@ export const Hero = ({ personalInfo }) => {
           margin-bottom: 0.85rem;
         }
         .hero-avatar-frame {
-          width: 135px;
-          height: 135px;
+          width: 130px;
+          height: 130px;
           border-radius: 50%;
           padding: 4px;
           background: linear-gradient(135deg, var(--accent-gold) 0%, rgba(251, 191, 36, 0.25) 100%);
@@ -149,48 +150,29 @@ export const Hero = ({ personalInfo }) => {
           object-fit: cover;
           background: var(--bg-card);
         }
-        .hero-avatar-badge {
-          position: absolute;
-          bottom: 2px;
-          right: -15px;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          padding: 0.25rem 0.75rem;
-          background: #0d1117;
-          border: 1px solid var(--border-color);
-          border-radius: 20px;
-          font-family: var(--font-code);
-          font-size: 0.75rem;
-          color: #ffffff;
-        }
-        .badge-status-dot {
-          width: 7px;
-          height: 7px;
-          border-radius: 50%;
-          background: #10b981;
-          box-shadow: 0 0 8px #10b981;
-        }
 
         .hero-name {
-          font-size: 2.6rem;
+          font-size: clamp(1.75rem, 5vw, 2.6rem);
           color: #ffffff;
           font-weight: 800;
           line-height: 1.15;
           margin-bottom: 0.35rem;
+          word-break: break-word;
         }
         .hero-subrole {
-          font-size: 1.35rem;
+          font-size: clamp(1.05rem, 3.5vw, 1.35rem);
           font-weight: 600;
           color: var(--text-secondary);
           margin-bottom: 1.25rem;
+          word-break: break-word;
         }
         .hero-desc {
           color: var(--text-secondary);
-          font-size: 1.05rem;
+          font-size: clamp(0.92rem, 2.5vw, 1.05rem);
           line-height: 1.65;
           margin-bottom: 0;
           max-width: 580px;
+          word-break: break-word;
         }
 
         .code-editor {
@@ -198,6 +180,7 @@ export const Hero = ({ personalInfo }) => {
           border: 1px solid var(--border-color);
           box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
           overflow: hidden;
+          width: 100%;
         }
         .editor-top {
           display: flex;
@@ -239,23 +222,26 @@ export const Hero = ({ personalInfo }) => {
           background: var(--accent-gold);
         }
         .editor-body {
-          padding: 1.25rem;
+          padding: 1.1rem;
           font-family: var(--font-code);
-          font-size: 0.88rem;
-          line-height: 1.65;
-          min-height: 330px;
+          font-size: 0.85rem;
+          line-height: 1.6;
+          min-height: 290px;
           overflow-x: auto;
         }
         .code-line {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
+          word-break: break-word;
+          white-space: pre-wrap;
         }
         .line-num {
           display: inline-block;
-          width: 28px;
+          width: 26px;
           color: #30363d;
           user-select: none;
           font-size: 0.8rem;
+          flex-shrink: 0;
         }
         .c-kw { color: #ff7b72; }
         .c-cls { color: #79c0ff; }
@@ -276,32 +262,28 @@ export const Hero = ({ personalInfo }) => {
         }
 
         @media (max-width: 960px) {
+          .hero-section {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+          }
           .hero-split-grid {
             grid-template-columns: 1fr;
             gap: 2rem;
           }
-          .hero-intro-col {
-            align-items: flex-start;
-          }
         }
-        @media (max-width: 600px) {
-          .hero-name {
-            font-size: 2rem;
-          }
-          .hero-subrole {
-            font-size: 1.15rem;
-          }
-          .hero-desc {
-            font-size: 0.95rem;
+
+        @media (max-width: 480px) {
+          .hero-avatar-frame {
+            width: 105px;
+            height: 105px;
           }
           .editor-body {
-            font-size: 0.78rem;
-            padding: 0.85rem;
-            min-height: 280px;
+            font-size: 0.76rem;
+            padding: 0.75rem;
+            min-height: 250px;
           }
-          .hero-avatar-frame {
-            width: 110px;
-            height: 110px;
+          .line-num {
+            width: 20px;
           }
         }
       `}</style>

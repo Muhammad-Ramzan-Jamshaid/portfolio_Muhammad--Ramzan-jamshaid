@@ -167,6 +167,7 @@ export const Contact = ({ personalInfo, showToast }) => {
         }
         .contact-info-box, .contact-form-box {
           padding: 2rem;
+          width: 100%;
         }
         .contact-heading {
           font-size: 1.3rem;
@@ -186,7 +187,7 @@ export const Contact = ({ personalInfo, showToast }) => {
         }
         .info-row {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           gap: 0.85rem;
         }
         .info-icon {
@@ -200,16 +201,21 @@ export const Contact = ({ personalInfo, showToast }) => {
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
+          margin-top: 2px;
         }
         .info-title {
           font-size: 0.75rem;
           color: var(--text-muted);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
         }
         .info-link, .info-val {
           font-size: 0.92rem;
           font-weight: 600;
           color: var(--text-primary);
           text-decoration: none;
+          word-break: break-word;
+          overflow-wrap: anywhere;
         }
         .info-link:hover { color: var(--accent-gold); }
         .social-block {
@@ -224,6 +230,7 @@ export const Contact = ({ personalInfo, showToast }) => {
         }
         .social-row {
           display: flex;
+          flex-wrap: wrap;
           gap: 0.65rem;
         }
         .form-row {
@@ -231,11 +238,22 @@ export const Contact = ({ personalInfo, showToast }) => {
           grid-template-columns: repeat(2, 1fr);
           gap: 0.85rem;
         }
-        @media (max-width: 900px) {
-          .contact-grid { grid-template-columns: 1fr; }
+
+        @media (max-width: 960px) {
+          .contact-grid { 
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
         }
-        @media (max-width: 500px) {
-          .form-row { grid-template-columns: 1fr; }
+        @media (max-width: 768px) {
+          .form-row { 
+            grid-template-columns: 1fr; 
+          }
+        }
+        @media (max-width: 600px) {
+          .contact-info-box, .contact-form-box {
+            padding: 1.25rem;
+          }
         }
       `}</style>
     </section>
