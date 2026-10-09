@@ -1,12 +1,12 @@
 export const initialPortfolioData = {
   personalInfo: {
     name: "Muhammad Ramzan Jamshaid",
-    title: "Full Stack Developer",
-    tagline: "Building High-Performance Web Applications with Laravel, React & SQL",
-    bio: "Passionate Full Stack Developer with expertise in crafting robust backend architectures with Laravel & SQL, and building dynamic, responsive UI with React, JavaScript, HTML, and CSS. Dedicated to continuous learning, clean code practices, and scalable software solutions.",
+    title: "Full-Stack Developer | AWS Student Builder Group Member",
+    tagline: "Building Impactful Digital Solutions with Laravel, React & SQL",
+    bio: "Web Developer with a focus on building impactful digital solutions, eager to tackle dynamic challenges and apply creativity to craft intuitive, responsive websites and applications. Demonstrated proficiency in project management, code-driven problem-solving, and seamless collaboration across cross-functional teams. Skilled in leveraging state-of-the-art frameworks, tools, and methodologies to streamline development processes and elevate user satisfaction through clean, efficient, and scalable code.",
     email: "ramzanjamshaid8u@gmail.com",
     phone: "+92 303 5302094",
-    location: "Pakistan",
+    location: "House No. B2III2S-9, Mohala Gala Mandi, Farooq Abad, Sheikhupura, Pakistan",
     github: "https://github.com/Muhammad-Ramzan-Jamshaid",
     linkedin: "https://www.linkedin.com/in/muhammad-ramzan-jamshaid-283827378",
     twitter: "https://twitter.com",
@@ -18,173 +18,171 @@ export const initialPortfolioData = {
   },
 
   skills: [
-    { id: "s1", name: "Laravel", category: "Backend", level: 92, icon: "Server", years: "3 yrs" },
-    { id: "s2", name: "PHP", category: "Backend", level: 90, icon: "Code", years: "3 yrs" },
-    { id: "s3", name: "React.js", category: "Frontend", level: 88, icon: "Atom", years: "2.5 yrs" },
-    { id: "s4", name: "JavaScript (ES6+)", category: "Frontend", level: 92, icon: "FileCode", years: "3 yrs" },
-    { id: "s5", name: "SQL / MySQL", category: "Database", level: 90, icon: "Database", years: "3 yrs" },
-    { id: "s6", name: "HTML5 & CSS3", category: "Frontend", level: 95, icon: "Layout", years: "4 yrs" },
-    { id: "s7", name: "RESTful APIs", category: "Backend", level: 94, icon: "Globe", years: "3 yrs" },
-    { id: "s8", name: "Git & GitHub", category: "Tools", level: 90, icon: "GitBranch", years: "3 yrs" },
-    { id: "s9", name: "PostgreSQL", category: "Database", level: 82, icon: "Database", years: "2 yrs" },
-    { id: "s10", name: "Tailwind CSS / Vanilla CSS", category: "Frontend", level: 92, icon: "Palette", years: "3 yrs" },
-    { id: "s11", name: "MVC Architecture", category: "Backend", level: 94, icon: "Cpu", years: "3 yrs" },
-    { id: "s12", name: "Vite & Build Tools", category: "Tools", level: 85, icon: "Zap", years: "2 yrs" }
+    { id: "s1", name: "Laravel", category: "Backend", level: 90, icon: "Server", years: "1+ yrs" },
+    { id: "s2", name: "React.js", category: "Frontend", level: 88, icon: "Atom", years: "1+ yrs" },
+    { id: "s3", name: "JavaScript (ES6+)", category: "Frontend", level: 90, icon: "FileCode", years: "2 yrs" },
+    { id: "s4", name: "HTML5 & CSS3", category: "Frontend", level: 95, icon: "Layout", years: "3 yrs" },
+    { id: "s5", name: "Bootstrap 5", category: "Frontend", level: 92, icon: "Palette", years: "2 yrs" },
+    { id: "s6", name: "MySQL & SQL Data Handling", category: "Database", level: 88, icon: "Database", years: "2 yrs" },
+    { id: "s7", name: "C / C++ & OOP", category: "Backend", level: 85, icon: "Code", years: "2 yrs" },
+    { id: "s8", name: "Git & GitHub", category: "Tools", level: 90, icon: "GitBranch", years: "2 yrs" },
+    { id: "s9", name: "Docker & Linux (Ubuntu)", category: "Tools", level: 80, icon: "Cpu", years: "1 yr" },
+    { id: "s10", name: "SEO & Figma UI/UX", category: "Tools", level: 85, icon: "Globe", years: "2 yrs" }
   ],
 
   experiences: [
     {
       id: "e1",
-      role: "Senior Full Stack Developer",
-      company: "Tech Solutions Inc.",
-      location: "Remote / On-site",
-      period: "2023 - Present",
-      description: "Leading the development of enterprise web applications using Laravel 10/11 backend API services and React dynamic client dashboards. Optimized database queries in MySQL resulting in 40% faster query execution.",
+      role: "Laravel Development Intern",
+      company: "Devnestic Solutions",
+      location: "Sheikhupura / Remote",
+      period: "Aug 2025 – Nov 2025",
+      description: "Assisted in developing responsive web interfaces, collaborated with the development team on frontend and backend tasks, and contributed to website testing, optimization, and maintenance.",
       highlights: [
-        "Architected scalable RESTful APIs using Laravel Sanctum for secure authentication.",
-        "Built dynamic interactive UI dashboards using React, Redux Toolkit, and Tailwind CSS.",
-        "Engineered complex SQL relational database schemas with indexing and stored procedures."
+        "Collaborated with core engineering team on frontend and Laravel backend modules.",
+        "Contributed to comprehensive website testing, performance optimization, and maintenance.",
+        "Engineered accessible, responsive web interfaces following clean code standards."
       ],
-      technologies: ["Laravel", "React", "MySQL", "JavaScript", "REST APIs"]
+      technologies: ["Laravel", "PHP", "MySQL", "JavaScript", "HTML/CSS"]
     },
     {
       id: "e2",
-      role: "Laravel & Backend Developer",
-      company: "Digital Innovators Agency",
-      location: "Hybrid",
-      period: "2022 - 2023",
-      description: "Developed custom e-commerce systems, CRM solutions, and database integrations. Focused on high quality HTML/CSS/JS frontend integration and backend logic execution.",
+      role: "Digital Marketing Specialist",
+      company: "Facebook Platform",
+      location: "Remote",
+      period: "2022 - 2025",
+      description: "Executed digital marketing campaigns on Facebook, creating engaging content and managing audience outreach to enhance brand visibility and engagement.",
       highlights: [
-        "Created multi-vendor e-commerce payment gateways & order workflows in Laravel.",
-        "Designed responsive, cross-browser pixel-perfect UI layouts using HTML5, CSS3, and JavaScript.",
-        "Implemented database migrations, seeders, and complex SQL joins for analytics reporting."
+        "Created high-converting digital marketing content and ad campaigns.",
+        "Managed audience outreach strategies to maximize brand visibility and user engagement.",
+        "Analyzed campaign performance metrics to optimize user acquisition."
       ],
-      technologies: ["Laravel", "PHP", "SQL", "JavaScript", "HTML/CSS"]
+      technologies: ["Digital Marketing", "SEO", "Facebook Ads", "Content Strategy"]
     },
     {
       id: "e3",
-      role: "Associate Web Developer",
-      company: "Creative Web Studio",
-      location: "Pakistan, Sheikhupura",
-      period: "2021 - 2022",
-      description: "Crafted interactive web platforms, landing pages, and web portals using vanilla HTML, CSS, JavaScript, and custom PHP modules.",
+      role: "Event Co-Organizer & AWS Student Builder Group Member",
+      company: "GCB SKP (Govt College Sheikhupura)",
+      location: "Sheikhupura, Pakistan",
+      period: "Feb 2026 - Present",
+      description: "Cultivated a culture of learning within the club by encouraging and guiding members in acquiring new cloud and tech competencies. Co-managed club events alongside the Captain.",
       highlights: [
-        "Built responsive client portfolios and landing pages with custom micro-animations.",
-        "Integrated MySQL database operations and CRUD features for client portals.",
-        "Maintained client codebases and improved Google Lighthouse performance scores to 95+."
+        "Guided club members in learning cloud computing and AWS technology stack.",
+        "Co-managed technical events, workshops, and tech seminars alongside the Captain.",
+        "Fostered collaborative team environment for tech skills building."
       ],
-      technologies: ["JavaScript", "HTML", "CSS", "PHP", "MySQL"]
+      technologies: ["AWS", "Cloud Basics", "Event Management", "Leadership"]
     }
   ],
 
   projects: [
     {
       id: "p1",
-      title: "Enterprise E-Commerce SaaS Engine",
+      title: "Smart Auto Car Services (FYP Website)",
       category: "Laravel",
-      description: "A full-featured multi-tenant e-commerce platform built with Laravel backend API, React front-end dashboard, and SQL database optimization for heavy order processing.",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80",
-      technologies: ["Laravel", "React", "SQL", "JavaScript", "CSS3"],
-      liveUrl: "https://example.com/demo-ecommerce",
-      githubUrl: "https://github.com/example/laravel-ecommerce",
+      description: "Developed a web-based automobile service management system for online service booking, appointment scheduling, and customer-vehicle management with an admin dashboard. Also providing services to different service providers and managing them.",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+      technologies: ["Laravel", "PHP", "MySQL", "Bootstrap 5", "JavaScript"],
+      liveUrl: "https://github.com/Muhammad-Ramzan-Jamshaid",
+      githubUrl: "https://github.com/Muhammad-Ramzan-Jamshaid",
       featured: true,
-      metrics: "50k+ Daily Requests | 99.9% Uptime"
+      metrics: "Final Year Project (FYP) | Full Admin Dashboard"
     },
     {
       id: "p2",
-      title: "Real-time Financial Analytics Dashboard",
-      category: "React",
-      description: "Interactive real-time data visualization dashboard for financial metrics, charts, transactions ledger, and automated reports built with React and custom dark CSS themes.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "JavaScript", "CSS Modules", "Chart.js", "REST API"],
-      liveUrl: "https://example.com/analytics-demo",
-      githubUrl: "https://github.com/example/react-analytics-dashboard",
+      title: "Event Management System",
+      category: "Full Stack",
+      description: "Developed a web-based platform for event planning and management, featuring event registration, scheduling, participant management, and administrative controls.",
+      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+      technologies: ["React", "Laravel", "MySQL", "JavaScript", "CSS3"],
+      liveUrl: "https://github.com/Muhammad-Ramzan-Jamshaid",
+      githubUrl: "https://github.com/Muhammad-Ramzan-Jamshaid",
       featured: true,
-      metrics: "Live Data Feed | Glassmorphic UI"
+      metrics: "Role-Based Access Control | Event Scheduling"
     },
     {
       id: "p3",
-      title: "School & Student Management ERP",
-      category: "Full Stack",
-      description: "Comprehensive ERP software featuring student enrollment, grading system, fee invoices, attendance tracking, and admin role permissions powered by Laravel & MySQL.",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
-      technologies: ["Laravel", "PHP", "SQL", "JavaScript", "HTML5"],
-      liveUrl: "https://example.com/erp-demo",
-      githubUrl: "https://github.com/example/laravel-school-erp",
-      featured: true,
-      metrics: "Role-Based Access Control | PDF Reports"
-    },
-    {
-      id: "p4",
-      title: "High-Performance RESTful Auth API Service",
-      category: "SQL",
-      description: "A bulletproof authentication and authorization service with JWT, Sanctum tokens, rate limiting, and highly normalized MySQL database structure.",
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-      technologies: ["Laravel", "SQL", "PHP", "REST API"],
-      liveUrl: "https://example.com/api-docs",
-      githubUrl: "https://github.com/example/laravel-rest-auth",
-      featured: false,
-      metrics: "Sub-50ms Response Time"
-    },
-    {
-      id: "p5",
-      title: "Dynamic Content Portfolio CMS System",
-      category: "React",
-      description: "A modern developer portfolio & dynamic content management engine allowing real-time client-side live editing, local storage synchronization, and customizable dark aesthetics.",
+      title: "Responsive Bootstrap Frontend Templates",
+      category: "Frontend",
+      description: "Successfully created multiple responsive frontend templates using Bootstrap 5, HTML5, and CSS3 for enhancing frontend UI engineering skills.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "JavaScript", "HTML5", "CSS3"],
-      liveUrl: "https://example.com/portfolio-cms",
-      githubUrl: "https://github.com/example/react-portfolio-cms",
-      featured: false,
-      metrics: "100% Dynamic Content CRUD"
+      technologies: ["Bootstrap 5", "HTML5", "CSS3", "JavaScript"],
+      liveUrl: "https://github.com/Muhammad-Ramzan-Jamshaid",
+      githubUrl: "https://github.com/Muhammad-Ramzan-Jamshaid",
+      featured: true,
+      metrics: "100% Responsive UI Layouts"
     }
   ],
 
   learning: [
     {
       id: "l1",
-      title: "Laravel 11 API Architecture & Microservices",
-      issuer: "Udemy Certified",
-      date: "15 January 2024",
-      duration: "6 Months Course",
+      title: "Laravel Development Certification",
+      issuer: "Devnestic Solutions / Academy",
+      date: "November 2025",
+      duration: "3 Months Internship",
       image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
-      description: "Advanced certification in Laravel 11 features, RESTful API architecture, Sanctum authentication, background queues, and Redis database caching."
+      description: "Professional training in Laravel framework, MVC architecture, RESTful APIs, MySQL database integration, and web security."
     },
     {
       id: "l2",
-      title: "Meta Advanced React 19 Development",
-      issuer: "Meta / Coursera",
-      date: "10 November 2023",
-      duration: "4 Months Course",
+      title: "Full-Stack Web Development",
+      issuer: "Govt College for Boys Civil Lines SKP",
+      date: "2024 - 2025",
+      duration: "Degree Coursework",
       image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80",
-      description: "Mastered React Server Components, custom hooks optimization, state management, memoization, and modern JavaScript component design."
+      description: "Comprehensive study in frontend HTML/CSS/JS/Bootstrap and backend PHP/Laravel database integration."
     },
     {
       id: "l3",
-      title: "SQL Query Optimization & Database Indexing",
-      issuer: "Database Architecture Academy",
-      date: "05 August 2023",
-      duration: "3 Months Course",
+      title: "AWS Student Builder Group Certification",
+      issuer: "AWS Student Builder Club GCB SKP",
+      date: "February 2026",
+      duration: "Ongoing",
       image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80",
-      description: "Specialized training on MySQL EXPLAIN query plans, B-Tree indexing strategies, stored procedures, and relational schema normalization."
+      description: "Cloud computing fundamentals, AWS infrastructure, and student technical community leadership."
     },
     {
       id: "l4",
-      title: "Full-Stack Security & RESTful API Best Practices",
-      issuer: "Cyber Security Web Certification",
-      date: "20 May 2023",
-      duration: "2 Months Course",
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
-      description: "Comprehensive training on OWASP Top 10 vulnerabilities, XSS/CSRF mitigation, CORS headers, and secure Sanctum token security."
+      title: "Responsive Web Design with Bootstrap 5",
+      issuer: "Frontend Web Engineering",
+      date: "2024",
+      duration: "2 Months",
+      image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?auto=format&fit=crop&w=800&q=80",
+      description: "Mastered responsive grid layouts, mobile-first styling, components integration, and cross-browser compatibility."
     },
     {
       id: "l5",
-      title: "Modern JavaScript (ES6+) & Web Performance",
-      issuer: "Frontend Engineering Mastery",
-      date: "12 January 2023",
-      duration: "2 Months Course",
-      image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?auto=format&fit=crop&w=800&q=80",
-      description: "Deep dive into ES6+ JavaScript async/await, event loop, DOM performance optimization, and Lighthouse 95+ web performance scoring."
+      title: "DevOps & AI for Beginners",
+      issuer: "Technical Learning Academy",
+      date: "2025",
+      duration: "2 Months",
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+      description: "Fundamental training on Docker containerization, Git version control workflow, Linux environment, and AI application tools."
+    }
+  ],
+
+  education: [
+    {
+      id: "ed1",
+      degree: "BS Information Technology",
+      institution: "Govt College for Boys Civil Lines, Sheikhupura",
+      period: "2022 – 2026",
+      details: "Current CGPA: 3.41"
+    },
+    {
+      id: "ed2",
+      degree: "FSc (Pre-Engineering)",
+      institution: "Govt Higher Secondary College",
+      period: "2020 – 2022",
+      details: "Completed Pre-Engineering studies"
+    },
+    {
+      id: "ed3",
+      degree: "Matriculation in Computer Science",
+      institution: "Govt Higher Secondary School Farooqabad",
+      period: "2018 – 2020",
+      details: "Computer Science Major"
     }
   ]
 };

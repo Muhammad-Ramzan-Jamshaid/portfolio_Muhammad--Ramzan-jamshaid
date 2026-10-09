@@ -71,12 +71,12 @@ export const Hero = ({ personalInfo }) => {
             </a>
 
             <a 
-              href="#contact" 
-              onClick={(e) => {
-                e.preventDefault();
-                alert("CV download requested. You can attach your PDF link in the contact section!");
-              }}
+              href="/resume.pdf" 
+              download="Muhammad_Ramzan_Jamshaid_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-secondary"
+              title="Download PDF Resume"
             >
               <Icons.Download size={16} />
               <span>Resume / CV</span>
