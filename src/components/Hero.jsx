@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Icons } from './Icons';
 
 export const Hero = ({ personalInfo }) => {
   const codeLines = [
@@ -48,9 +47,28 @@ export const Hero = ({ personalInfo }) => {
   return (
     <section id="hero" className="hero-section section">
       <div className="container hero-split-grid">
-        {/* Left Column: Developer Intro */}
+        {/* Left Column: Profile Image & Developer Intro */}
         <div className="hero-intro-col">
-          <span className="header-label">DEVELOPER PORTFOLIO</span>
+          {/* Profile Photo Avatar Frame */}
+          <div className="hero-avatar-wrapper">
+            <div className="hero-avatar-frame">
+              <img
+                src={personalInfo.avatar || "/profile.jpg"}
+                alt={personalInfo.name}
+                className="hero-avatar-img"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80";
+                }}
+              />
+            </div>
+            <div className="hero-avatar-badge">
+              <span className="badge-status-dot"></span>
+              <span>Available for Hire</span>
+            </div>
+          </div>
+
+          <span className="header-label" style={{ marginTop: '0.8rem' }}>DEVELOPER PORTFOLIO</span>
           
           <h1 className="hero-name">Muhammad Ramzan Jamshaid</h1>
           <h2 className="hero-subrole">Full Stack Developer <span className="highlight-gold">(Laravel &amp; React)</span></h2>
@@ -58,30 +76,6 @@ export const Hero = ({ personalInfo }) => {
           <p className="hero-desc">
             Specialized in building high-performance backend REST APIs with <strong>Laravel &amp; SQL</strong>, paired with dynamic, intuitive user interfaces built in <strong>React, JavaScript, HTML &amp; CSS</strong>.
           </p>
-
-          <div className="hero-cta-buttons">
-            <a href="#projects" className="btn btn-gold">
-              <span>View Projects</span>
-              <Icons.ExternalLink size={16} />
-            </a>
-
-            <a href="#contact" className="btn btn-secondary">
-              <Icons.Mail size={16} />
-              <span>Contact Me</span>
-            </a>
-
-            <a 
-              href="/resume.pdf" 
-              download="Muhammad_Ramzan_Jamshaid_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary"
-              title="Download PDF Resume"
-            >
-              <Icons.Download size={16} />
-              <span>Resume / CV</span>
-            </a>
-          </div>
         </div>
 
         {/* Right Column: Animated Code Editor */}
@@ -134,7 +128,54 @@ export const Hero = ({ personalInfo }) => {
         .hero-intro-col {
           display: flex;
           flex-direction: column;
+          align-items: flex-start;
         }
+
+        /* Profile Avatar Frame */
+        .hero-avatar-wrapper {
+          position: relative;
+          display: inline-block;
+          margin-bottom: 0.85rem;
+        }
+        .hero-avatar-frame {
+          width: 135px;
+          height: 135px;
+          border-radius: 50%;
+          padding: 4px;
+          background: linear-gradient(135deg, var(--accent-gold) 0%, rgba(251, 191, 36, 0.25) 100%);
+          box-shadow: 0 10px 30px rgba(251, 191, 36, 0.25);
+          overflow: hidden;
+        }
+        .hero-avatar-img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+          background: var(--bg-card);
+        }
+        .hero-avatar-badge {
+          position: absolute;
+          bottom: 2px;
+          right: -15px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          padding: 0.25rem 0.75rem;
+          background: #0d1117;
+          border: 1px solid var(--border-color);
+          border-radius: 20px;
+          font-family: var(--font-code);
+          font-size: 0.75rem;
+          color: #ffffff;
+        }
+        .badge-status-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #10b981;
+          box-shadow: 0 0 8px #10b981;
+        }
+
         .hero-name {
           font-size: 2.6rem;
           color: #ffffff;
@@ -152,14 +193,10 @@ export const Hero = ({ personalInfo }) => {
           color: var(--text-secondary);
           font-size: 1.05rem;
           line-height: 1.65;
-          margin-bottom: 2rem;
+          margin-bottom: 0;
           max-width: 580px;
         }
-        .hero-cta-buttons {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.85rem;
-        }
+
         .code-editor {
           background: #07090e;
           border: 1px solid var(--border-color);
@@ -251,3 +288,4 @@ export const Hero = ({ personalInfo }) => {
     </section>
   );
 };
+

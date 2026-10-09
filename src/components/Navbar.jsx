@@ -49,6 +49,19 @@ export const Navbar = ({ activeSection }) => {
             <span>Hire Me</span>
           </a>
 
+          <a
+            href="/resume.pdf"
+            download="Muhammad_Ramzan_Jamshaid_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary btn-sm"
+            style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}
+            title="Download PDF Resume"
+          >
+            <Icons.Download size={14} />
+            <span>Download Resume</span>
+          </a>
+
           <button
             className="mobile-menu-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
