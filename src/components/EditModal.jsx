@@ -76,6 +76,17 @@ export const EditModal = ({ isOpen, onClose, section, data, onSave }) => {
           {section === 'hero' && (
             <div className="form-fields-group">
               <div className="form-field">
+                <label>Profile Image / Avatar URL (Hero Photo)</label>
+                <input
+                  type="text"
+                  value={formData.personalInfo.avatar || ''}
+                  onChange={(e) => handlePersonalInfoChange('avatar', e.target.value)}
+                  placeholder="/profile.jpg or https://..."
+                />
+                <span className="field-hint">Apni photo ka link daalein (ya `/profile.jpg` rakhein agar public folder me photo rakhi hai).</span>
+              </div>
+
+              <div className="form-field">
                 <label>Full Name</label>
                 <input
                   type="text"
