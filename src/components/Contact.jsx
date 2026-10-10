@@ -10,7 +10,7 @@ export const Contact = ({ personalInfo, showToast }) => {
   });
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       showToast("Please fill in all required fields.", "error");
@@ -18,11 +18,38 @@ export const Contact = ({ personalInfo, showToast }) => {
     }
 
     setSubmitting(true);
-    setTimeout(() => {
+    const accessKey = personalInfo.web3forms_key || "YOUR_WEB3FORMS_ACCESS_KEY";
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || `Portfolio Contact Message from ${formData.name}`,
+          message: formData.message
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        showToast(`Thank you ${formData.name}! Your message has been delivered to Ramzan's inbox.`);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        // If demo/placeholder key is used or api error
+        showToast(data.message || "Could not send message via Web3Forms. Please check Access Key.", "error");
+      }
+    } catch (err) {
+      showToast("Network error. Please try again later.", "error");
+    } finally {
       setSubmitting(false);
-      showToast(`Thank you ${formData.name}! Your message has been sent successfully.`);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 600);
+    }
   };
 
   return (

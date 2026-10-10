@@ -6,6 +6,7 @@ export const initialPortfolioData = {
     tagline: "Building Impactful Digital Solutions with Laravel, React & SQL",
     bio: "Web Developer with a focus on building impactful digital solutions, eager to tackle dynamic challenges and apply creativity to craft intuitive, responsive websites and applications. Demonstrated proficiency in project management, code-driven problem-solving, and seamless collaboration across cross-functional teams. Skilled in leveraging state-of-the-art frameworks, tools, and methodologies to streamline development processes and elevate user satisfaction through clean, efficient, and scalable code.",
     email: "ramzanjamshaid8u@gmail.com",
+    web3forms_key: "",
     phone: "+92 303 5302094",
     location: "House No. B2III2S-9, Mohala Gala Mandi, Farooq Abad, Sheikhupura, Pakistan",
     github: "https://github.com/Muhammad-Ramzan-Jamshaid",

@@ -561,6 +561,16 @@ export const EditModal = ({ isOpen, onClose, section, data, onSave }) => {
                   />
                 </div>
                 <div className="form-field">
+                  <label>Web3Forms Access Key (For Contact Form Email)</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                    value={formData.personalInfo.web3forms_key || ''}
+                    onChange={(e) => handlePersonalInfoChange('web3forms_key', e.target.value)}
+                  />
+                  <span className="field-hint">web3forms.com se free Access Key milti ha.</span>
+                </div>
+                <div className="form-field">
                   <label>Phone Number</label>
                   <input
                     type="text"
