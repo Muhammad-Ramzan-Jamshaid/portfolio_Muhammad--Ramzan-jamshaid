@@ -93,12 +93,6 @@ export const Contact = ({ personalInfo, showToast }) => {
               Ready to <span className="highlight-gold">start a project</span> or hire?
             </h2>
           </div>
-
-          <div className="header-right">
-            <p className="header-desc">
-              Whether you need a full-stack Laravel &amp; React developer, custom API engineering, or technical consultation—drop a message below!
-            </p>
-          </div>
         </div>
 
         {/* Content Grid */}
