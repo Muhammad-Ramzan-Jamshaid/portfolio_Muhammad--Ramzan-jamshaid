@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Icons } from './Icons';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const Skills = ({ skills }) => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -12,6 +13,7 @@ export const Skills = ({ skills }) => {
 
   return (
     <section id="expertise" className="section">
+      <SectionBackdrop variant="cyan" tokens={['PHP', 'React', 'MySQL', 'Docker', 'Git', 'Bootstrap', 'AWS', '✦']} />
       <div className="container">
         {/* Asymmetric Split Section Header */}
         <div className="section-header-split">

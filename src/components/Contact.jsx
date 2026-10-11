@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Icons } from './Icons';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const Contact = ({ personalInfo, showToast }) => {
   const [formData, setFormData] = useState({
@@ -54,6 +55,7 @@ export const Contact = ({ personalInfo, showToast }) => {
 
   return (
     <section id="contact" className="section">
+      <SectionBackdrop variant="gold" tokens={['HireMe', 'Available', 'mailto:', 'Web3Forms', 'SayHello', '✦', 'Let\'sTalk']} />
       <div className="container">
         {/* Asymmetric Split Section Header (Matching Demo Layout) */}
         <div className="section-header-split">

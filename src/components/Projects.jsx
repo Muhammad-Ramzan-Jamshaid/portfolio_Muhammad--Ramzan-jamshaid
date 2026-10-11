@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Icons } from './Icons';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const Projects = ({ projects }) => {
   const [showModal, setShowModal] = useState(false);
@@ -9,6 +10,7 @@ export const Projects = ({ projects }) => {
 
   return (
     <section id="projects" className="section">
+      <SectionBackdrop variant="purple" tokens={['SmartAuto', 'EventManager', 'BootstrapUI', 'GitPush', 'Production', '✦', 'FullStack']} />
       <div className="container">
         {/* Asymmetric Split Section Header */}
         <div className="section-header-split">

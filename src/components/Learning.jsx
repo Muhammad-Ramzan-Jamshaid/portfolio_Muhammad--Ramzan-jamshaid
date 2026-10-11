@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Icons } from './Icons';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const Learning = ({ learning }) => {
   const [showModal, setShowModal] = useState(false);
@@ -9,6 +10,7 @@ export const Learning = ({ learning }) => {
 
   return (
     <section id="learning" className="section learning-section-view">
+      <SectionBackdrop variant="cyan" tokens={['AWS Builder', 'Laravel Dev', 'DevOps', 'Cloud', 'Certified', '✦', 'ContinuousGrowth']} />
       <div className="container">
         {/* Asymmetric Split Section Header */}
         <div className="section-header-split" style={{ marginBottom: '1.75rem' }}>

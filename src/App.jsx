@@ -10,6 +10,7 @@ import { Learning } from './components/Learning';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Icons } from './components/Icons';
+import { ParticleBackground } from './components/ParticleBackground';
 
 export default function App() {
   const [data] = useState(initialPortfolioData);
@@ -43,7 +44,10 @@ export default function App() {
   };
 
   return (
-    <div className="app-main-wrapper">
+    <div className="app-main-wrapper" style={{ position: 'relative', overflowX: 'hidden' }}>
+      {/* Interactive Global Particles & Constellation Mesh */}
+      <ParticleBackground />
+
       {/* Main Navbar */}
       <Navbar activeSection={activeSection} />
 

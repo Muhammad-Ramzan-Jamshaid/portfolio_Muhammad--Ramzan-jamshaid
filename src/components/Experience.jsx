@@ -1,9 +1,11 @@
 import React from 'react';
 import { Icons } from './Icons';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const Experience = ({ experiences }) => {
   return (
     <section id="experience" className="section">
+      <SectionBackdrop variant="amber" tokens={['Devnestic', 'Laravel', 'REST API', 'GCB SKP', 'AWS Club', '2+ Yrs', '✦']} />
       <div className="container">
         {/* Asymmetric Split Section Header */}
         <div className="section-header-split">

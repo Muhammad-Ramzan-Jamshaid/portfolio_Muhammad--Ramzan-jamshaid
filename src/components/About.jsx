@@ -1,8 +1,10 @@
 import React from 'react';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const About = ({ personalInfo }) => {
   return (
     <section id="about" className="section">
+      <SectionBackdrop variant="emerald" tokens={['FullStack', 'ProblemSolver', 'CleanCode', 'Laravel', '✦', 'Scalable', '0101']} />
       <div className="container">
         {/* Section Header */}
         <div className="about-header-wrapper">

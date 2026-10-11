@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const Hero = ({ personalInfo }) => {
   const codeLines = [
@@ -46,6 +47,7 @@ export const Hero = ({ personalInfo }) => {
 
   return (
     <section id="hero" className="hero-section section">
+      <SectionBackdrop variant="gold" tokens={['<?php', 'Route::get', 'React.js', 'SQL', '✦', 'Laravel 11', '0101']} />
       <div className="container hero-split-grid">
         {/* Left Column: Profile Image & Developer Intro */}
         <div className="hero-intro-col">
@@ -69,9 +71,7 @@ export const Hero = ({ personalInfo }) => {
           <h1 className="hero-name">Muhammad Ramzan Jamshaid</h1>
           <h2 className="hero-subrole">Full Stack Developer <span className="highlight-gold">(Laravel &amp; React)</span></h2>
 
-          <p className="hero-desc">
-            Specialized in building high-performance backend REST APIs with <strong>Laravel &amp; SQL</strong>, paired with dynamic, intuitive user interfaces built in <strong>React, JavaScript, HTML &amp; CSS</strong>.
-          </p>
+
         </div>
 
         {/* Right Column: Animated Code Editor */}
