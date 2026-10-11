@@ -1,6 +1,6 @@
 export const initialPortfolioData = {
   personalInfo: {
-    avatar: "/profile.jpg",
+    avatar: "D:\Saved Pictures",
     name: "Muhammad Ramzan Jamshaid",
     title: "Full-Stack Developer | AWS Student Builder Group Member",
     tagline: "Building Impactful Digital Solutions with Laravel, React & SQL",
@@ -22,42 +22,46 @@ export const initialPortfolioData = {
   skills: [
     { id: "s1", name: "Laravel", category: "Backend", level: 90, icon: "Server", years: "1+ yrs" },
     { id: "s2", name: "React.js", category: "Frontend", level: 88, icon: "Atom", years: "1+ yrs" },
-    { id: "s3", name: "JavaScript (ES6+)", category: "Frontend", level: 90, icon: "FileCode", years: "2 yrs" },
-    { id: "s4", name: "HTML5 & CSS3", category: "Frontend", level: 95, icon: "Layout", years: "3 yrs" },
-    { id: "s5", name: "Bootstrap 5", category: "Frontend", level: 92, icon: "Palette", years: "2 yrs" },
-    { id: "s6", name: "MySQL & SQL Data Handling", category: "Database", level: 88, icon: "Database", years: "2 yrs" },
-    { id: "s7", name: "C / C++ & OOP", category: "Backend", level: 85, icon: "Code", years: "2 yrs" },
+    { id: "s3", name: "JavaScript (ES6+)", category: "Frontend", level: 70, icon: "FileCode", years: "1+ yrs" },
+    { id: "s4", name: "HTML5 & CSS3", category: "Frontend", level: 95, icon: "Layout", years: "3+ yrs" },
+    { id: "s5", name: "Bootstrap 5", category: "Frontend", level: 92, icon: "Palette", years: "2+ yrs" },
+    { id: "s6", name: "MySQL & SQL Database", category: "Database", level: 88, icon: "Database", years: "1+ yrs" },
+    { id: "s7", name: "tailwind css", category: "Frontend", level: 60, icon: "Code", years: "1 yrs" },
     { id: "s8", name: "Git & GitHub", category: "Tools", level: 90, icon: "GitBranch", years: "2 yrs" },
-    { id: "s9", name: "Docker & Linux (Ubuntu)", category: "Tools", level: 80, icon: "Cpu", years: "1 yr" },
-    { id: "s10", name: "SEO & Figma UI/UX", category: "Tools", level: 85, icon: "Globe", years: "2 yrs" }
+    { id: "s9", name: "Docker", category: "Tools", level: 80, icon: "Cpu", years: "1 yr" },
+    { id: "s10", name: "Figma UI/UX", category: "Tools", level: 85, icon: "Globe", years: "2 yrs" },
+    { id: "s11", name: "canva", category: "tools", level: 70, icon: "Globe", years: "1 yr" },
+    { id: "s12", name: "word", category: "tools", level: 90, icon: "document", years: "3+ yrs" },
+    { id: "s13", name: "Excel & powerr point", category: "tools", level: 80, icon: "GLobe", years: "2+ yrs" }
   ],
 
   experiences: [
     {
       id: "e1",
-      role: "Laravel Development Intern",
+      role: "Backend development in laravel Intern",
       company: "Devnestic Solutions",
-      location: "Sheikhupura / Remote",
+      location: "Sheikhupura / on-site",
       period: "Aug 2025 – Nov 2025",
       description: "Assisted in developing responsive web interfaces, collaborated with the development team on frontend and backend tasks, and contributed to website testing, optimization, and maintenance.",
       highlights: [
-        "Collaborated with core engineering team on frontend and Laravel backend modules.",
+        "Collaborated with core team on frontend and Laravel backend modules.",
         "Contributed to comprehensive website testing, performance optimization, and maintenance.",
-        "Engineered accessible, responsive web interfaces following clean code standards."
-      ],
-      technologies: ["Laravel", "PHP", "MySQL", "JavaScript", "HTML/CSS"]
+        "Working on different projects, responsive web interfaces following clean code standards.",
+        "integration different external gatwayes  like stripe for payemnt method in projects"
+
+      ]
     },
     {
       id: "e2",
       role: "Digital Marketing Specialist",
       company: "Facebook Platform",
       location: "Remote",
-      period: "2022 - 2025",
-      description: "Executed digital marketing campaigns on Facebook, creating engaging content and managing audience outreach to enhance brand visibility and engagement.",
+      period: "2022 - continue",
+      description: "working with different international companies and managing facbook profiles for running Advertisments",
       highlights: [
-        "Created high-converting digital marketing content and ad campaigns.",
-        "Managed audience outreach strategies to maximize brand visibility and user engagement.",
-        "Analyzed campaign performance metrics to optimize user acquisition."
+        "Created high-converting digital marketing content and ad campaigns on facebook profiles .",
+        "Managed audience for better engagement and use only thoes productes & services which i can make more profit.",
+        "Adpoted Ai based SEO fro getting more trafic on my profiles."
       ],
       technologies: ["Digital Marketing", "SEO", "Facebook Ads", "Content Strategy"]
     },
