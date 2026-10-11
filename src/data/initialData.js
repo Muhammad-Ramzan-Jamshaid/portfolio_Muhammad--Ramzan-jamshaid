@@ -1,6 +1,6 @@
 export const initialPortfolioData = {
   personalInfo: {
-    avatar: "D:\Saved Pictures",
+    avatar: "/profile.png",
     name: "Muhammad Ramzan Jamshaid",
     title: "Full-Stack Developer | AWS Student Builder Group Member",
     tagline: "Building Impactful Digital Solutions with Laravel, React & SQL",

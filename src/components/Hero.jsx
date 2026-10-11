@@ -153,6 +153,7 @@ export const Hero = ({ personalInfo }) => {
           height: 100%;
           border-radius: 50%;
           object-fit: cover;
+          object-position: center 18%;
           background: var(--bg-card);
         }
 
