@@ -19,35 +19,62 @@ export const Contact = ({ personalInfo, showToast }) => {
     }
 
     setSubmitting(true);
-    const accessKey = personalInfo.web3forms_key || "YOUR_WEB3FORMS_ACCESS_KEY";
+    const targetEmail = personalInfo.email || "ramzanjamshaid8u@gmail.com";
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          access_key: accessKey,
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject || `Portfolio Contact Message from ${formData.name}`,
-          message: formData.message
-        })
-      });
+      let data = null;
 
-      const data = await response.json();
+      // 1. If Web3Forms access key is explicitly provided, use Web3Forms
+      if (personalInfo.web3forms_key && personalInfo.web3forms_key.trim() !== '') {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            access_key: personalInfo.web3forms_key,
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject || `Portfolio Contact Message from ${formData.name}`,
+            message: formData.message
+          })
+        });
+        data = await response.json();
+      } else {
+        // 2. Direct automatic delivery to ramzanjamshaid8u@gmail.com via FormSubmit.co (No API key needed!)
+        const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            _subject: formData.subject ? `[Portfolio Contact] ${formData.subject}` : `[Portfolio Contact] Message from ${formData.name}`,
+            message: formData.message,
+            _template: "table",
+            _captcha: "false"
+          })
+        });
+        data = await response.json();
+      }
 
-      if (data.success) {
-        showToast(`Thank you ${formData.name}! Your message has been delivered to Ramzan's inbox.`);
+      if (data && (data.success === true || data.success === "true")) {
+        showToast(`Thank you ${formData.name}! Your message has been sent directly to ${targetEmail}.`);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else if (data && data.message && (data.message.includes("Activation") || data.message.includes("Activate"))) {
+        showToast("One-time setup: FormSubmit has sent an 'Activate Form' link to your Gmail. Please click it to confirm!", "info");
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        // If demo/placeholder key is used or api error
-        showToast(data.message || "Could not send message via Web3Forms. Please check Access Key.", "error");
+        showToast(data?.message || "Could not send message. Opening email client...", "error");
+        // Seamless fallback to mailto
+        window.location.href = `mailto:${targetEmail}?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
       }
     } catch (err) {
-      showToast("Network error. Please try again later.", "error");
+      showToast("Network error. Opening your email app instead...", "info");
+      window.location.href = `mailto:${targetEmail}?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
     } finally {
       setSubmitting(false);
     }

@@ -132,16 +132,21 @@ export const Hero = ({ personalInfo }) => {
         .hero-avatar-wrapper {
           position: relative;
           display: inline-block;
-          margin-bottom: 0.85rem;
+          margin-bottom: 1.25rem;
         }
         .hero-avatar-frame {
-          width: 130px;
-          height: 130px;
+          width: clamp(175px, 22vw, 215px);
+          height: clamp(175px, 22vw, 215px);
           border-radius: 50%;
-          padding: 4px;
-          background: linear-gradient(135deg, var(--accent-gold) 0%, rgba(251, 191, 36, 0.25) 100%);
-          box-shadow: 0 10px 30px rgba(251, 191, 36, 0.25);
+          padding: 5px;
+          background: linear-gradient(135deg, var(--accent-gold) 0%, rgba(251, 191, 36, 0.3) 50%, var(--accent-cyan) 100%);
+          box-shadow: 0 12px 35px rgba(251, 191, 36, 0.3), 0 0 25px rgba(251, 191, 36, 0.15);
           overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hero-avatar-frame:hover {
+          transform: scale(1.03);
+          box-shadow: 0 16px 45px rgba(251, 191, 36, 0.4), 0 0 35px rgba(251, 191, 36, 0.25);
         }
         .hero-avatar-img {
           width: 100%;
