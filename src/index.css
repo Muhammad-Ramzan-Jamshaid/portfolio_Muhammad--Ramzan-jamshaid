@@ -9,11 +9,11 @@
   --border-color: #212836;
   --border-light: rgba(255, 255, 255, 0.07);
 
-  /* Gold / Amber Warm Premium Accent */
+  /* Clean 2-Color Architecture: Main Gold & Combination Cyan */
   --accent-gold: #fbbf24;
   --accent-gold-hover: #f59e0b;
   --accent-cyan: #38bdf8;
-  --accent-emerald: #10b981;
+  --accent-cyan-hover: #0284c7;
 
   --text-primary: #ffffff;
   --text-secondary: #94a3b8;
@@ -77,53 +77,48 @@ p, span, a, div {
   overflow: hidden;
 }
 
-/* Asymmetric Split Section Header Layout */
+/* Section Header Layout */
 .section-header-split {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 2.5rem;
+  display: flex;
+  justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 3rem;
+  gap: 2rem;
+  margin-bottom: 2.75rem;
+  flex-wrap: wrap;
 }
 
 .header-left {
   display: flex;
   flex-direction: column;
-}
-
-.header-label {
-  font-family: var(--font-code);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 0.75rem;
-  position: relative;
-  display: inline-block;
-}
-
-.header-label::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--accent-gold);
-  margin-top: 6px;
-}
-
-.header-sub {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--accent-cyan);
-  margin-bottom: 0.5rem;
+  gap: 0.35rem;
 }
 
 .header-main-title {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: 800;
   color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   line-height: 1.15;
+  display: inline-block;
+}
+
+.header-main-title::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: var(--accent-gold);
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.header-sub {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: 0.01em;
+  margin-top: 0.2rem;
 }
 
 .header-right {

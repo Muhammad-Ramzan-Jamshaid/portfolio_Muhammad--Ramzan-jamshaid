@@ -84,14 +84,11 @@ export const Contact = ({ personalInfo, showToast }) => {
     <section id="contact" className="section">
       <SectionBackdrop variant="gold" tokens={['HireMe', 'Available', 'mailto:', 'Web3Forms', 'SayHello', '✦', 'Let\'sTalk']} />
       <div className="container">
-        {/* Asymmetric Split Section Header (Matching Demo Layout) */}
+        {/* Section Header */}
         <div className="section-header-split">
           <div className="header-left">
-            <span className="header-label">GET IN TOUCH</span>
+            <h2 className="header-main-title">GET IN TOUCH</h2>
             <div className="header-sub">Let's Work Together</div>
-            <h2 className="header-main-title">
-              Ready to <span className="highlight-gold">start a project</span> or hire?
-            </h2>
           </div>
         </div>
 

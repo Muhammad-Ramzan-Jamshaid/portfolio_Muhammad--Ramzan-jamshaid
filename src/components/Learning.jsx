@@ -12,14 +12,11 @@ export const Learning = ({ learning }) => {
     <section id="learning" className="section learning-section-view">
       <SectionBackdrop variant="cyan" tokens={['AWS Builder', 'Laravel Dev', 'DevOps', 'Cloud', 'Certified', '✦', 'ContinuousGrowth']} />
       <div className="container">
-        {/* Asymmetric Split Section Header */}
+        {/* Section Header */}
         <div className="section-header-split" style={{ marginBottom: '1.75rem' }}>
           <div className="header-left">
-            <span className="header-label">CONTINUOUS GROWTH</span>
+            <h2 className="header-main-title">CONTINUOUS GROWTH</h2>
             <div className="header-sub">Certifications &amp; Courses</div>
-            <h2 className="header-main-title">
-              Upgrading skills &amp; <span className="highlight-gold">certifications</span>
-            </h2>
           </div>
 
           <div className="header-right" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>

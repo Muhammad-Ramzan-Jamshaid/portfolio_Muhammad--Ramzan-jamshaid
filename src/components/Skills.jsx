@@ -15,18 +15,11 @@ export const Skills = ({ skills }) => {
     <section id="expertise" className="section">
       <SectionBackdrop variant="cyan" tokens={['PHP', 'React', 'MySQL', 'Docker', 'Git', 'Bootstrap', 'AWS', '✦']} />
       <div className="container">
-        {/* Asymmetric Split Section Header */}
+        {/* Section Header */}
         <div className="section-header-split">
           <div className="header-left">
-            <span className="header-label">TECHNICAL EXPERTISE</span>
+            <h2 className="header-main-title">TECHNICAL EXPERTISE</h2>
             <div className="header-sub">Frameworks &amp; Languages</div>
-            <h2 className="header-main-title">
-              Specialized <span className="highlight-gold">full-stack tech</span> stack
-            </h2>
-          </div>
-
-          <div className="header-right">
-            {/* Top-right text removed */}
           </div>
         </div>
 

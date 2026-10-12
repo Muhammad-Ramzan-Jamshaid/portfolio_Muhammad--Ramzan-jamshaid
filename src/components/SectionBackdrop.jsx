@@ -34,32 +34,17 @@ export const SectionBackdrop = ({
     };
   }, []);
 
-  // Variant color definitions
+  // Clean Two-Color Theme (Primary: Gold #fbbf24, Combination: Cyan #38bdf8)
   const colorMap = {
     gold: {
-      orb1: 'radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, rgba(251, 191, 36, 0) 70%)',
-      orb2: 'radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0) 70%)',
-      spotlight: 'rgba(251, 191, 36, 0.08)'
+      orb1: 'radial-gradient(circle, rgba(251, 191, 36, 0.28) 0%, rgba(251, 191, 36, 0) 70%)',
+      orb2: 'radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(56, 189, 248, 0) 70%)',
+      spotlight: 'rgba(251, 191, 36, 0.16)'
     },
     cyan: {
-      orb1: 'radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, rgba(56, 189, 248, 0) 70%)',
-      orb2: 'radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0) 70%)',
-      spotlight: 'rgba(56, 189, 248, 0.08)'
-    },
-    emerald: {
-      orb1: 'radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0) 70%)',
-      orb2: 'radial-gradient(circle, rgba(251, 191, 36, 0.12) 0%, rgba(251, 191, 36, 0) 70%)',
-      spotlight: 'rgba(16, 185, 129, 0.08)'
-    },
-    purple: {
-      orb1: 'radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0) 70%)',
-      orb2: 'radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0) 70%)',
-      spotlight: 'rgba(168, 85, 247, 0.08)'
-    },
-    amber: {
-      orb1: 'radial-gradient(circle, rgba(245, 158, 11, 0.16) 0%, rgba(245, 158, 11, 0) 70%)',
-      orb2: 'radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0) 70%)',
-      spotlight: 'rgba(245, 158, 11, 0.08)'
+      orb1: 'radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(56, 189, 248, 0) 70%)',
+      orb2: 'radial-gradient(circle, rgba(251, 191, 36, 0.22) 0%, rgba(251, 191, 36, 0) 70%)',
+      spotlight: 'rgba(56, 189, 248, 0.16)'
     }
   };
 
@@ -128,12 +113,12 @@ export const SectionBackdrop = ({
           position: absolute;
           inset: 0;
           background-image: 
-            linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(251, 191, 36, 0.04) 1px, transparent 1px);
           background-size: 50px 50px;
-          mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, #000 30%, transparent 85%);
-          -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, #000 30%, transparent 85%);
-          animation: gridDrift 40s linear infinite;
+          mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, #000 35%, transparent 88%);
+          -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, #000 35%, transparent 88%);
+          animation: gridDrift 35s linear infinite;
         }
 
         @keyframes gridDrift {
@@ -150,16 +135,16 @@ export const SectionBackdrop = ({
           height: 200%;
           background: radial-gradient(
             circle at 50% 50%,
-            rgba(251, 191, 36, 0.035) 0%,
-            rgba(56, 189, 248, 0.02) 30%,
-            transparent 65%
+            rgba(251, 191, 36, 0.08) 0%,
+            rgba(56, 189, 248, 0.06) 35%,
+            transparent 68%
           );
-          animation: sweepRotate 28s ease-in-out infinite alternate;
+          animation: sweepRotate 25s ease-in-out infinite alternate;
           transform-origin: center;
         }
 
         @keyframes sweepRotate {
-          0% { transform: translate(-10%, -10%) rotate(0deg) scale(0.9); }
+          0% { transform: translate(-10%, -10%) rotate(0deg) scale(0.95); }
           50% { transform: translate(8%, 12%) rotate(180deg) scale(1.15); }
           100% { transform: translate(-8%, 5%) rotate(360deg) scale(1); }
         }
@@ -168,25 +153,25 @@ export const SectionBackdrop = ({
         .backdrop-orb {
           position: absolute;
           border-radius: 50%;
-          filter: blur(65px);
-          opacity: 0.85;
+          filter: blur(55px);
+          opacity: 0.95;
           will-change: transform;
         }
 
         .orb-primary {
-          width: 520px;
-          height: 520px;
+          width: 540px;
+          height: 540px;
           top: -10%;
           left: -8%;
-          animation: floatOrb1 18s ease-in-out infinite alternate;
+          animation: floatOrb1 16s ease-in-out infinite alternate;
         }
 
         .orb-secondary {
-          width: 480px;
-          height: 480px;
+          width: 500px;
+          height: 500px;
           bottom: -15%;
           right: -5%;
-          animation: floatOrb2 22s ease-in-out infinite alternate;
+          animation: floatOrb2 20s ease-in-out infinite alternate;
         }
 
         @keyframes floatOrb1 {
@@ -220,21 +205,19 @@ export const SectionBackdrop = ({
           position: absolute;
           bottom: -40px;
           font-family: var(--font-code, monospace);
-          font-size: 0.82rem;
+          font-size: 0.85rem;
           font-weight: 600;
           letter-spacing: 1px;
-          color: rgba(255, 255, 255, 0.12);
           user-select: none;
           animation: floatUp linear infinite;
           will-change: transform, opacity;
-          text-shadow: 0 0 8px rgba(251, 191, 36, 0.2);
         }
 
-        .token-0 { color: rgba(251, 191, 36, 0.18); font-size: 0.9rem; }
-        .token-1 { color: rgba(56, 189, 248, 0.18); font-size: 0.85rem; }
-        .token-2 { color: rgba(16, 185, 129, 0.16); font-size: 0.8rem; }
-        .token-3 { color: rgba(168, 85, 247, 0.16); font-size: 0.88rem; }
-        .token-4 { color: rgba(245, 158, 11, 0.16); font-size: 0.82rem; }
+        .token-0 { color: rgba(251, 191, 36, 0.38); font-size: 0.95rem; text-shadow: 0 0 10px rgba(251, 191, 36, 0.5); }
+        .token-1 { color: rgba(56, 189, 248, 0.38); font-size: 0.9rem; text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+        .token-2 { color: rgba(251, 191, 36, 0.32); font-size: 0.85rem; text-shadow: 0 0 8px rgba(251, 191, 36, 0.4); }
+        .token-3 { color: rgba(56, 189, 248, 0.35); font-size: 0.92rem; text-shadow: 0 0 9px rgba(56, 189, 248, 0.45); }
+        .token-4 { color: rgba(251, 191, 36, 0.35); font-size: 0.88rem; text-shadow: 0 0 9px rgba(251, 191, 36, 0.45); }
 
         @keyframes floatUp {
           0% {
@@ -242,10 +225,10 @@ export const SectionBackdrop = ({
             opacity: 0;
           }
           15% {
-            opacity: 0.8;
+            opacity: 0.9;
           }
           85% {
-            opacity: 0.8;
+            opacity: 0.9;
           }
           100% {
             transform: translateY(-110vh) rotate(20deg);

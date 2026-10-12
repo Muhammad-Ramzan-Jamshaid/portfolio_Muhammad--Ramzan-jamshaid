@@ -37,35 +37,6 @@ export const initialPortfolioData = {
 
   experiences: [
     {
-      id: "e1",
-      role: "Backend development in laravel Intern",
-      company: "Devnestic Solutions",
-      location: "Sheikhupura / on-site",
-      period: "Aug 2025 – Nov 2025",
-      description: "Assisted in developing responsive web interfaces, collaborated with the development team on frontend and backend tasks, and contributed to website testing, optimization, and maintenance.",
-      highlights: [
-        "Collaborated with core team on frontend and Laravel backend modules.",
-        "Contributed to comprehensive website testing, performance optimization, and maintenance.",
-        "Working on different projects, responsive web interfaces following clean code standards.",
-        "integration different external gatwayes  like stripe for payemnt method in projects"
-
-      ]
-    },
-    {
-      id: "e2",
-      role: "Digital Marketing Specialist",
-      company: "Facebook Platform",
-      location: "Remote",
-      period: "2022 - continue",
-      description: "working with different international companies and managing facbook profiles for running Advertisments",
-      highlights: [
-        "Created high-converting digital marketing content and ad campaigns on facebook profiles .",
-        "Managed audience for better engagement and use only thoes productes & services which i can make more profit.",
-        "Adpoted Ai based SEO fro getting more trafic on my profiles."
-      ],
-      technologies: ["Digital Marketing", "SEO", "Facebook Ads", "Content Strategy"]
-    },
-    {
       id: "e3",
       role: "Event Co-Organizer & AWS Student Builder Group Member",
       company: "GCB SKP (Govt College Sheikhupura)",
@@ -78,6 +49,35 @@ export const initialPortfolioData = {
         "Fostered collaborative team environment for tech skills building."
       ],
       technologies: ["AWS", "Cloud Basics", "Event Management", "Leadership"]
+    },
+    {
+      id: "e1",
+      role: "Backend development in laravel Intern",
+      company: "Devnestic Solutions",
+      location: "Sheikhupura / on-site",
+      period: "Aug 2025 – Nov 2025",
+      description: "Assisted in developing responsive web interfaces, collaborated with the development team on frontend and backend tasks, and contributed to website testing, optimization, and maintenance.",
+      highlights: [
+        "Collaborated with core team on frontend and Laravel backend modules.",
+        "Contributed to comprehensive website testing, performance optimization, and maintenance.",
+        "Working on different projects, responsive web interfaces following clean code standards.",
+        "Integration of different external gateways like Stripe for payment method in projects."
+      ],
+      technologies: ["Laravel", "PHP", "MySQL", "Stripe API"]
+    },
+    {
+      id: "e2",
+      role: "Digital Marketing Specialist",
+      company: "Facebook Platform",
+      location: "Remote",
+      period: "2022 - continue",
+      description: "Working with different international companies and managing Facebook profiles for running advertisements and digital campaigns.",
+      highlights: [
+        "Created high-converting digital marketing content and ad campaigns on Facebook profiles.",
+        "Managed audience for better engagement and targeted high-performing products & services.",
+        "Adopted SEO and analytical strategies for increasing organic and paid profile traffic."
+      ],
+      technologies: ["Digital Marketing", "SEO", "Facebook Ads", "Content Strategy"]
     }
   ],
 

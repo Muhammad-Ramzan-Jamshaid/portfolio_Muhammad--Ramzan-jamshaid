@@ -1,122 +1,144 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Icons } from './Icons';
 import { SectionBackdrop } from './SectionBackdrop';
 
 export const Experience = ({ experiences }) => {
-  const getExpIcon = (exp) => {
-    const text = (exp.role + ' ' + exp.company).toLowerCase();
-    if (text.includes('laravel')) return <Icons.Laravel size={22} />;
-    if (text.includes('marketing') || text.includes('facebook')) return <Icons.Globe size={22} />;
-    if (text.includes('aws') || text.includes('organizer')) return <Icons.Server size={22} />;
-    return <Icons.Briefcase size={22} />;
+  const [expandedIds, setExpandedIds] = useState({});
+
+  const toggleExpand = (id) => {
+    setExpandedIds(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
   };
 
-  const getExpTag = (exp) => {
-    if (exp.period?.toLowerCase().includes('present')) {
-      return { label: 'Active Role', isLive: true, color: 'tag-emerald' };
-    }
-    if (exp.role?.toLowerCase().includes('intern')) {
-      return { label: 'Engineering Internship', isLive: false, color: 'tag-gold' };
-    }
-    return { label: 'Professional Role', isLive: false, color: 'tag-cyan' };
+  // Sort experiences: latest on top (Present / latest year first)
+  const sortedExperiences = [...experiences].sort((a, b) => {
+    const getScore = (exp) => {
+      const p = (exp.period || '').toLowerCase();
+      if (p.includes('present')) return 202612;
+      if (p.includes('continue')) return 202601;
+      const years = p.match(/\d{4}/g);
+      if (years && years.length > 0) {
+        return Math.max(...years.map(Number));
+      }
+      return 0;
+    };
+    return getScore(b) - getScore(a);
+  });
+
+  const getExpIcon = (exp) => {
+    const text = (exp.role + ' ' + exp.company).toLowerCase();
+    if (text.includes('laravel')) return <Icons.Laravel size={20} />;
+    if (text.includes('marketing') || text.includes('facebook')) return <Icons.Globe size={20} />;
+    if (text.includes('aws') || text.includes('organizer')) return <Icons.Server size={20} />;
+    return <Icons.Briefcase size={20} />;
   };
 
   return (
     <section id="experience" className="section experience-section">
-      <SectionBackdrop variant="amber" tokens={['Devnestic', 'Laravel 11', 'REST API', 'GCB SKP', 'AWS Club', '2+ Yrs', '✦', 'MySQL']} />
+      <SectionBackdrop variant="gold" tokens={['Devnestic', 'Laravel 11', 'REST API', 'GCB SKP', 'AWS Club', '2+ Yrs', '✦', 'MySQL']} />
       <div className="container">
-        {/* Asymmetric Split Section Header */}
+        {/* Section Header */}
         <div className="section-header-split">
           <div className="header-left">
-            <span className="header-label">CAREER HISTORY</span>
+            <h2 className="header-main-title">CAREER HISTORY</h2>
             <div className="header-sub">Professional Experience &amp; Impact</div>
-            <h2 className="header-main-title">
-              Engineering <span className="highlight-gold">real-world solutions</span>
-            </h2>
           </div>
-
-
         </div>
 
-        {/* Iconic Futuristic Timeline Architecture */}
+        {/* Futuristic Timeline Architecture */}
         <div className="timeline-container">
-          {/* Vertical Glowing Circuit Line */}
+          {/* Vertical Glowing Circuit Line (Two Colors: Gold & Cyan) */}
           <div className="timeline-spine">
             <div className="spine-glow-stream"></div>
           </div>
 
           <div className="timeline-cards-list">
-            {experiences.map((exp, index) => {
-              const tagInfo = getExpTag(exp);
+            {sortedExperiences.map((exp, index) => {
+              const cardId = exp.id || `exp-${index}`;
+              const isExpanded = !!expandedIds[cardId];
 
               return (
-                <div key={exp.id || index} className="timeline-item group">
-                  {/* Glowing Node on Timeline Spine */}
-                  <div className={`timeline-node ${tagInfo.isLive ? 'node-live' : ''}`}>
+                <div key={cardId} className="timeline-item group">
+                  {/* Node on Timeline Spine */}
+                  <div className="timeline-node">
                     <div className="node-icon-wrap">
                       {getExpIcon(exp)}
                     </div>
-                    {tagInfo.isLive && <span className="live-radar-ping"></span>}
                   </div>
 
                   {/* Connected Branch Connector */}
                   <div className="timeline-branch"></div>
 
-                  {/* Iconic Experience Card */}
-                  <div className="clean-card timeline-card">
+                  {/* Clean Experience Card (No Cluttered Badges) */}
+                  <div className={`clean-card timeline-card ${isExpanded ? 'card-is-expanded' : ''}`}>
                     {/* Top Ambient Glow Ribbon */}
                     <div className="card-ambient-ribbon"></div>
 
                     <div className="timeline-card-content">
-                      {/* Top Header Row */}
-                      <div className="card-top-header">
-                        <div className="role-and-company">
-                          <div className="role-meta-row">
-                            <span className={`exp-type-tag ${tagInfo.color}`}>
-                              {tagInfo.isLive && <span className="live-dot-pulse"></span>}
-                              {tagInfo.label}
-                            </span>
-                            <span className="company-badge-pill">
-                              <Icons.Briefcase size={12} />
-                              {exp.company}
-                            </span>
-                          </div>
-
+                      {/* Clean Header: Main Heading, Company & Duration */}
+                      <div className="card-main-header">
+                        <div className="role-company-group">
                           <h3 className="role-headline">{exp.role}</h3>
+                          <div className="company-and-meta">
+                            <span className="company-name">{exp.company}</span>
+                            {exp.location && (
+                              <>
+                                <span className="meta-sep">•</span>
+                                <span className="location-name">{exp.location}</span>
+                              </>
+                            )}
+                          </div>
                         </div>
 
-                        {/* Period & Location Badge */}
-                        <div className="period-location-badge">
-                          <div className="period-time">
-                            <Icons.Sparkles size={13} className="sparkle-icon" />
-                            <span>{exp.period}</span>
-                          </div>
-                          <div className="location-time">
-                            <Icons.Globe size={12} />
-                            <span>{exp.location}</span>
-                          </div>
+                        {/* Clean Duration (No Badge Box) */}
+                        <div className="duration-wrapper">
+                          <span className="duration-date">{exp.period}</span>
                         </div>
                       </div>
 
-                      {/* Summary Description */}
-                      <p className="card-narrative">{exp.description}</p>
+                      {/* Read More / Toggle Details Action */}
+                      <div className="card-toggle-row">
+                        <button
+                          type="button"
+                          onClick={() => toggleExpand(cardId)}
+                          className="btn btn-secondary btn-sm"
+                          aria-expanded={isExpanded}
+                        >
+                          <span>{isExpanded ? 'Hide Details' : 'Read More Details'}</span>
+                          {isExpanded ? (
+                            <Icons.ChevronUp size={14} />
+                          ) : (
+                            <Icons.ChevronDown size={14} />
+                          )}
+                        </button>
+                      </div>
 
-                      {/* Key Milestones / Highlights */}
-                      {exp.highlights && exp.highlights.length > 0 && (
-                        <div className="highlights-block">
-                          <span className="highlights-title">Key Responsibilities &amp; Impact:</span>
-                          <ul className="highlights-grid">
-                            {exp.highlights.map((h, i) => (
-                              <li key={i} className="highlight-item">
-                                <span className="highlight-arrow">❯</span>
-                                <span className="highlight-text">{h}</span>
-                              </li>
-                            ))}
-                          </ul>
+                      {/* Expandable Details Container */}
+                      {isExpanded && (
+                        <div className="expanded-details-container">
+                          {/* Summary Description */}
+                          {exp.description && (
+                            <p className="card-narrative">{exp.description}</p>
+                          )}
+
+                          {/* Key Milestones / Highlights */}
+                          {exp.highlights && exp.highlights.length > 0 && (
+                            <div className="highlights-block">
+                              <span className="highlights-title">Key Responsibilities &amp; Impact:</span>
+                              <ul className="highlights-grid">
+                                {exp.highlights.map((h, i) => (
+                                  <li key={i} className="highlight-item">
+                                    <span className="highlight-arrow">❯</span>
+                                    <span className="highlight-text">{h}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
                         </div>
                       )}
-
-
                     </div>
                   </div>
                 </div>
@@ -146,9 +168,8 @@ export const Experience = ({ experiences }) => {
           width: 3px;
           background: linear-gradient(
             180deg,
-            rgba(251, 191, 36, 0.6) 0%,
-            rgba(56, 189, 248, 0.4) 50%,
-            rgba(16, 185, 129, 0.2) 100%
+            rgba(251, 191, 36, 0.7) 0%,
+            rgba(56, 189, 248, 0.6) 100%
           );
           border-radius: 4px;
         }
@@ -175,7 +196,7 @@ export const Experience = ({ experiences }) => {
         .timeline-cards-list {
           display: flex;
           flex-direction: column;
-          gap: 2.5rem;
+          gap: 1.5rem;
         }
 
         /* Timeline Item Node + Branch */
@@ -185,13 +206,13 @@ export const Experience = ({ experiences }) => {
 
         .timeline-node {
           position: absolute;
-          top: 26px;
+          top: 22px;
           left: -2.75rem;
-          width: 42px;
-          height: 42px;
-          border-radius: 12px;
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
           background: #0d1117;
-          border: 2px solid var(--border-color);
+          border: 1.5px solid var(--border-color);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -205,28 +226,8 @@ export const Experience = ({ experiences }) => {
           border-color: var(--accent-gold);
           color: #ffffff;
           background: var(--bg-card);
-          box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
-          transform: scale(1.08);
-        }
-
-        .node-live {
-          border-color: var(--accent-emerald) !important;
-          color: var(--accent-emerald) !important;
-          box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
-        }
-
-        .live-radar-ping {
-          position: absolute;
-          inset: -4px;
-          border-radius: 14px;
-          border: 2px solid var(--accent-emerald);
-          animation: radarPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-          opacity: 0.6;
-        }
-
-        @keyframes radarPing {
-          0% { transform: scale(1); opacity: 0.8; }
-          100% { transform: scale(1.45); opacity: 0; }
+          box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+          transform: scale(1.06);
         }
 
         .node-icon-wrap {
@@ -237,33 +238,33 @@ export const Experience = ({ experiences }) => {
 
         .timeline-branch {
           position: absolute;
-          top: 45px;
-          left: calc(-2.75rem + 42px);
+          top: 41px;
+          left: calc(-2.75rem + 40px);
           width: 1.25rem;
           height: 2px;
-          background: linear-gradient(90deg, var(--border-color), rgba(251, 191, 36, 0.4));
+          background: linear-gradient(90deg, var(--border-color), rgba(251, 191, 36, 0.3));
           transition: background 0.3s ease;
         }
 
         .timeline-item:hover .timeline-branch {
-          background: linear-gradient(90deg, var(--accent-gold), rgba(251, 191, 36, 0.8));
+          background: linear-gradient(90deg, var(--accent-gold), rgba(251, 191, 36, 0.7));
         }
 
-        /* Timeline Card */
+        /* Clean Timeline Card */
         .timeline-card {
           position: relative;
           background: linear-gradient(135deg, rgba(17, 22, 32, 0.95) 0%, rgba(13, 17, 23, 0.92) 100%);
           border: 1px solid var(--border-color);
           border-radius: var(--radius-lg);
           overflow: hidden;
-          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
         }
 
         .timeline-card:hover {
-          border-color: rgba(251, 191, 36, 0.5);
-          transform: translateY(-4px);
-          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(251, 191, 36, 0.12);
+          border-color: rgba(251, 191, 36, 0.45);
+          transform: translateY(-2px);
+          box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(251, 191, 36, 0.1);
         }
 
         .card-ambient-ribbon {
@@ -271,182 +272,149 @@ export const Experience = ({ experiences }) => {
           top: 0;
           left: 0;
           right: 0;
-          height: 3px;
-          background: linear-gradient(90deg, transparent 0%, var(--accent-gold) 50%, transparent 100%);
+          height: 2px;
+          background: linear-gradient(90deg, transparent 0%, var(--accent-gold) 50%, var(--accent-cyan) 80%, transparent 100%);
           opacity: 0.35;
           transition: opacity 0.3s ease;
         }
 
         .timeline-card:hover .card-ambient-ribbon {
-          opacity: 1;
+          opacity: 0.9;
         }
 
         .timeline-card-content {
-          padding: 2rem 2.25rem;
+          padding: 1.35rem 1.6rem;
         }
 
-        /* Top Header Row */
-        .card-top-header {
+        /* Clean Header Layout (No Badges) */
+        .card-main-header {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
           flex-wrap: wrap;
-          gap: 1.25rem;
-          margin-bottom: 1.25rem;
+          gap: 1rem;
         }
 
-        .role-and-company {
+        .role-company-group {
           display: flex;
           flex-direction: column;
-          gap: 0.45rem;
-        }
-
-        .role-meta-row {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 0.65rem;
-        }
-
-        .exp-type-tag {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.4rem;
-          font-family: var(--font-code);
-          font-size: 0.75rem;
-          font-weight: 700;
-          padding: 0.25rem 0.65rem;
-          border-radius: 4px;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-
-        .tag-gold {
-          background: rgba(251, 191, 36, 0.12);
-          border: 1px solid rgba(251, 191, 36, 0.3);
-          color: var(--accent-gold);
-        }
-
-        .tag-emerald {
-          background: rgba(16, 185, 129, 0.12);
-          border: 1px solid rgba(16, 185, 129, 0.3);
-          color: var(--accent-emerald);
-        }
-
-        .tag-cyan {
-          background: rgba(56, 189, 248, 0.12);
-          border: 1px solid rgba(56, 189, 248, 0.3);
-          color: var(--accent-cyan);
-        }
-
-        .live-dot-pulse {
-          width: 7px;
-          height: 7px;
-          border-radius: 50%;
-          background: var(--accent-emerald);
-          box-shadow: 0 0 8px var(--accent-emerald);
-          animation: dotBlink 1.5s infinite;
-        }
-
-        @keyframes dotBlink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.3; }
-        }
-
-        .company-badge-pill {
-          display: inline-flex;
-          align-items: center;
           gap: 0.35rem;
-          font-size: 0.82rem;
-          color: var(--text-primary);
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid var(--border-color);
-          padding: 0.2rem 0.6rem;
-          border-radius: 4px;
-          font-weight: 600;
+          flex: 1;
+          min-width: 250px;
         }
 
         .role-headline {
-          font-size: 1.45rem;
-          font-weight: 800;
+          font-size: 1.28rem;
+          font-weight: 700;
           color: #ffffff;
-          line-height: 1.25;
-          letter-spacing: -0.01em;
+          line-height: 1.3;
         }
 
-        .period-location-badge {
+        .company-and-meta {
           display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          gap: 0.35rem;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          font-size: 0.92rem;
         }
 
-        .period-time {
-          display: inline-flex;
+        .company-name {
+          color: var(--accent-cyan);
+          font-weight: 600;
+        }
+
+        .meta-sep {
+          color: var(--text-muted);
+        }
+
+        .location-name {
+          color: var(--text-secondary);
+          font-size: 0.86rem;
+        }
+
+        .duration-wrapper {
+          display: flex;
           align-items: center;
-          gap: 0.45rem;
-          padding: 0.35rem 0.85rem;
-          background: rgba(251, 191, 36, 0.08);
-          border: 1px solid rgba(251, 191, 36, 0.25);
-          border-radius: var(--radius-sm);
+        }
+
+        .duration-date {
           font-family: var(--font-code);
-          font-size: 0.82rem;
+          font-size: 0.9rem;
           font-weight: 700;
           color: var(--accent-gold);
+          letter-spacing: 0.3px;
         }
 
-        .sparkle-icon {
-          color: var(--accent-gold);
-        }
-
-        .location-time {
-          display: inline-flex;
+        /* Read More Button Action */
+        .card-toggle-row {
+          margin-top: 0.9rem;
+          padding-top: 0.75rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          display: flex;
           align-items: center;
-          gap: 0.35rem;
-          font-size: 0.78rem;
-          color: var(--text-muted);
+          justify-content: flex-start;
+        }
+
+
+        /* Expanded Details Area */
+        .expanded-details-container {
+          margin-top: 1.15rem;
+          padding-top: 1.1rem;
+          border-top: 1px dashed rgba(255, 255, 255, 0.08);
+          animation: fadeInSlide 0.25s ease-out;
+        }
+
+        @keyframes fadeInSlide {
+          from {
+            opacity: 0;
+            transform: translateY(-6px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
 
         /* Narrative */
         .card-narrative {
           color: var(--text-secondary);
-          font-size: 0.98rem;
-          line-height: 1.65;
-          margin-bottom: 1.35rem;
+          font-size: 0.92rem;
+          line-height: 1.6;
+          margin-bottom: 1.1rem;
         }
 
         /* Highlights */
         .highlights-block {
-          background: rgba(7, 9, 14, 0.5);
-          border: 1px solid rgba(255, 255, 255, 0.05);
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.06);
           border-radius: var(--radius-md);
-          padding: 1.25rem 1.5rem;
-          margin-bottom: 1.5rem;
+          padding: 1rem 1.25rem;
+          margin-bottom: 0.5rem;
         }
 
         .highlights-title {
           font-family: var(--font-code);
-          font-size: 0.78rem;
+          font-size: 0.76rem;
           font-weight: 700;
           color: var(--accent-cyan);
           text-transform: uppercase;
-          letter-spacing: 0.75px;
+          letter-spacing: 0.6px;
           display: block;
-          margin-bottom: 0.85rem;
+          margin-bottom: 0.7rem;
         }
 
         .highlights-grid {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 0.65rem;
+          gap: 0.55rem;
         }
 
         .highlight-item {
           display: flex;
           align-items: flex-start;
-          gap: 0.65rem;
-          font-size: 0.92rem;
+          gap: 0.55rem;
+          font-size: 0.88rem;
           color: #e2e8f0;
           line-height: 1.5;
         }
@@ -454,60 +422,9 @@ export const Experience = ({ experiences }) => {
         .highlight-arrow {
           color: var(--accent-gold);
           font-weight: 800;
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           margin-top: 1px;
           flex-shrink: 0;
-        }
-
-        /* Tech Footer */
-        .card-tech-footer {
-          display: flex;
-          align-items: center;
-          gap: 0.85rem;
-          padding-top: 1.25rem;
-          border-top: 1px solid var(--border-color);
-          flex-wrap: wrap;
-        }
-
-        .tech-footer-label {
-          font-family: var(--font-code);
-          font-size: 0.75rem;
-          font-weight: 700;
-          color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-
-        .tech-pills-wrap {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-        }
-
-        .tech-cyber-pill {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.2rem;
-          padding: 0.25rem 0.7rem;
-          background: rgba(13, 17, 23, 0.9);
-          border: 1px solid rgba(255, 255, 255, 0.09);
-          border-radius: 6px;
-          font-family: var(--font-code);
-          font-size: 0.78rem;
-          color: #f1f5f9;
-          transition: all 0.2s ease;
-        }
-
-        .tech-cyber-pill:hover {
-          border-color: var(--accent-gold);
-          color: var(--accent-gold);
-          background: rgba(251, 191, 36, 0.08);
-          transform: translateY(-1px);
-        }
-
-        .hash-sign {
-          color: var(--accent-gold);
-          font-weight: 700;
         }
 
         /* Mobile Responsiveness */
@@ -523,22 +440,19 @@ export const Experience = ({ experiences }) => {
             width: 32px;
             height: 32px;
             border-radius: 8px;
-            top: 20px;
+            top: 18px;
           }
           .timeline-branch {
             display: none;
           }
           .timeline-card-content {
-            padding: 1.4rem;
+            padding: 1.15rem 1.15rem;
           }
           .role-headline {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
           }
-          .card-top-header {
+          .card-main-header {
             flex-direction: column;
-            align-items: flex-start;
-          }
-          .period-location-badge {
             align-items: flex-start;
           }
         }

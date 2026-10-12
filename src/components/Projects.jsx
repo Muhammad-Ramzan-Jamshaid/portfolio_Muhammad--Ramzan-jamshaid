@@ -10,16 +10,13 @@ export const Projects = ({ projects }) => {
 
   return (
     <section id="projects" className="section">
-      <SectionBackdrop variant="purple" tokens={['SmartAuto', 'EventManager', 'BootstrapUI', 'GitPush', 'Production', '✦', 'FullStack']} />
+      <SectionBackdrop variant="gold" tokens={['SmartAuto', 'EventManager', 'BootstrapUI', 'GitPush', 'Production', '✦', 'FullStack']} />
       <div className="container">
-        {/* Asymmetric Split Section Header */}
+        {/* Section Header */}
         <div className="section-header-split">
           <div className="header-left">
-            <span className="header-label">FEATURED WORKS</span>
+            <h2 className="header-main-title">FEATURED WORKS</h2>
             <div className="header-sub">Check My Portfolio</div>
-            <h2 className="header-main-title">
-              Innovative <span className="highlight-gold">web applications</span> &amp; systems
-            </h2>
           </div>
 
           <div className="header-right" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>

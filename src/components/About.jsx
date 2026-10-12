@@ -4,15 +4,12 @@ import { SectionBackdrop } from './SectionBackdrop';
 export const About = ({ personalInfo }) => {
   return (
     <section id="about" className="section">
-      <SectionBackdrop variant="emerald" tokens={['FullStack', 'ProblemSolver', 'CleanCode', 'Laravel', '✦', 'Scalable', '0101']} />
+      <SectionBackdrop variant="cyan" tokens={['FullStack', 'ProblemSolver', 'CleanCode', 'Laravel', '✦', 'Scalable', '0101']} />
       <div className="container">
         {/* Section Header */}
         <div className="about-header-wrapper">
-          <span className="header-label">ABOUT ME</span>
+          <h2 className="header-main-title">ABOUT ME</h2>
           <div className="header-sub">Software Development Overview</div>
-          <h2 className="header-main-title">
-            Engineering <span className="highlight-gold">clean code</span> &amp; architecture
-          </h2>
         </div>
 
         {/* Bio Text without card border */}
